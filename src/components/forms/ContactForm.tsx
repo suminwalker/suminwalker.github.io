@@ -22,6 +22,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
 
 // Validation schema with security best practices
 const contactFormSchema = z.object({
@@ -69,23 +70,17 @@ export function ContactForm() {
     setIsSubmitting(true);
     
     try {
-      // Formspree integration - replace YOUR_FORM_ID with your actual form ID
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      const { data: response, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
           name: data.name,
           email: data.email,
           projectType: data.projectType,
           message: data.message,
-          _subject: `New ${data.projectType} inquiry from ${data.name}`,
-        }),
+        },
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      if (error) {
+        throw new Error(error.message || 'Failed to send message');
       }
 
       // Show success state
