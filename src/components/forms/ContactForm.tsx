@@ -36,7 +36,7 @@ const contactFormSchema = z.object({
     .trim()
     .email({ message: 'Please enter a valid email address' })
     .max(255, { message: 'Email must be less than 255 characters' }),
-  projectType: z.enum(['mobile-app', 'desktop-app', 'ai-integration', 'computer-vision', 'mvp-development', 'other'], {
+  projectType: z.enum(['website', 'prototype', 'mvp', 'full-app'], {
     required_error: 'Please select a project type',
   }),
   message: z
@@ -185,24 +185,18 @@ export function ContactForm() {
                     <SelectValue placeholder="Select project type" />
                   </SelectTrigger>
                 </FormControl>
-                <SelectContent className="bg-popover z-50">
-                  <SelectItem value="mobile-app" className="font-light">
-                    Mobile App (iOS/Android)
+                <SelectContent className="bg-background border border-border shadow-lg z-[100]" position="popper" sideOffset={4}>
+                  <SelectItem value="website" className="font-light">
+                    Website
                   </SelectItem>
-                  <SelectItem value="desktop-app" className="font-light">
-                    Desktop Application
+                  <SelectItem value="prototype" className="font-light">
+                    Prototype
                   </SelectItem>
-                  <SelectItem value="ai-integration" className="font-light">
-                    AI Integration / Generative AI
+                  <SelectItem value="mvp" className="font-light">
+                    MVP
                   </SelectItem>
-                  <SelectItem value="computer-vision" className="font-light">
-                    Computer Vision
-                  </SelectItem>
-                  <SelectItem value="mvp-development" className="font-light">
-                    MVP Development
-                  </SelectItem>
-                  <SelectItem value="other" className="font-light">
-                    Other
+                  <SelectItem value="full-app" className="font-light">
+                    Full App
                   </SelectItem>
                 </SelectContent>
               </Select>
