@@ -32,7 +32,7 @@ By combining thoughtful UI/UX design with AI capabilities and location-aware fea
   ],
   education: 'Computer Science & Software Engineering',
   location: 'United States',
-  email: 'hello@suminwalker.com',
+  email: 'design@suminwalker.com',
   phone: '+1 (555) 123-4567',
   availability: 'Currently accepting new projects',
   socialLinks: {
