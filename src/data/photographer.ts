@@ -2,40 +2,40 @@ import type { PhotographerInfo } from '@/types';
 
 export const photographerInfo: PhotographerInfo = {
   name: 'Sumin Walker',
-  tagline: 'Editorial & Commercial Photographer',
-  heroIntroduction: 'Creating visual narratives that capture authentic moments and timeless stories.',
-  biography: `Sumin Walker is an award-winning photographer specializing in editorial and commercial work, with recognition including the International Photography Awards Editorial Photographer of the Year 2023 and PDN Photo Annual Winner 2022. With over a decade of experience, her work has been featured in numerous international publications and exhibitions, collaborating with clients such as Vogue, The New York Times, National Geographic, Adobe, Apple, Nike, and Architectural Digest.
+  tagline: 'Mobile & Desktop App Developer',
+  heroIntroduction: 'Building intelligent apps and MVPs that transform ideas into powerful user experiences.',
+  biography: `Sumin Walker is a seasoned app developer specializing in mobile (iOS and Android) and desktop applications, with a proven track record of bringing MVPs to life. Her expertise spans the full product development lifecycle—from concept validation to scalable, production-ready solutions.
 
-Based in New York with an MFA in Photography from the School of Visual Arts, Sumin brings a unique perspective to every project, combining technical excellence with artistic vision. Her approach to photography is deeply rooted in storytelling, believing that every image should convey emotion and meaning beyond its visual appeal.`,
-  approach: `My photography is guided by three principles: authenticity, composition, and light. I believe the best images emerge when subjects feel comfortable and genuine, when composition guides the viewer's eye naturally, and when light reveals the essence of the moment.
+Currently, Sumin is developing an innovative video editing and generation platform powered by AI. The app helps creators brainstorm content that resonates with audiences, generate new videos, and streamline the editing process. It features deep social media channel integration and geofencing capabilities for location-aware content strategies.
 
-Whether working on editorial assignments or commercial projects, I strive to create images that transcend their immediate purpose and become lasting visual statements.`,
+She's also working on a stealth-mode project that leverages AI and geolocation technology to provide real-time policy notifications. The app alerts users to regulatory changes as they cross state borders or approach restricted areas—solving a critical compliance challenge for mobile professionals.`,
+  approach: `My development philosophy centers on three pillars: user-first design, intelligent automation, and seamless integration.
+
+I believe the best apps anticipate user needs before they arise. By combining AI capabilities with location-aware features like geofencing, I create experiences that feel intuitive and contextually relevant. Every MVP I build is architected for growth—starting lean but ready to scale.
+
+Whether it's integrating social media APIs, implementing real-time notifications, or building AI-powered content tools, I focus on shipping products that solve real problems and delight users.`,
   awards: [
-    'International Photography Awards - Editorial Photographer of the Year 2023',
-    'PDN Photo Annual - Winner 2022',
-    'Hasselblad Masters Finalist 2021',
-    'Communication Arts Photography Annual 2020'
+    'AI-Powered Video Creation Platform — Shipped 2024',
+    'Real-Time Geofencing Notification System — In Development',
+    'Cross-Platform Mobile & Desktop Expertise',
+    'End-to-End MVP Development'
   ],
   clients: [
-    'Vogue',
-    'The New York Times',
-    'National Geographic',
-    'Adobe',
-    'Apple',
-    'Nike',
-    'Patagonia',
-    'Architectural Digest'
+    'Content Creators',
+    'Media Companies',
+    'Compliance-Focused Enterprises',
+    'Early-Stage Startups',
+    'Mobile Professionals'
   ],
-  education: 'MFA Photography, School of Visual Arts, New York',
-  location: 'New York, NY',
+  education: 'Computer Science & Software Engineering',
+  location: 'United States',
   email: 'hello@suminwalker.com',
   phone: '+1 (555) 123-4567',
-  availability: 'Currently booking for Q2 2025',
+  availability: 'Currently accepting new projects',
   socialLinks: {
-    instagram: 'https://instagram.com/suminwalkerphoto',
+    instagram: 'https://instagram.com/suminwalker',
     linkedin: 'https://linkedin.com/in/suminwalker',
-    behance: 'https://behance.net/suminwalker'
+    behance: 'https://github.com/suminwalker'
   },
-  // Photo by Joshua Sun on Unsplash
-  portraitImage: 'https://images.unsplash.com/photo-1585279968680-6606ee6ed134?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDA2OTF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjI3Njk1NjB8&ixlib=rb-4.1.0&q=80&w=1080'
+  portraitImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwd29tYW4lMjB0ZWNofGVufDB8fHx8MTcwOTkxNjk4Nnww&ixlib=rb-4.0.3&q=80&w=1080'
 };
