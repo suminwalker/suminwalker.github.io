@@ -10,7 +10,7 @@ Her expertise spans the full product lifecycle—from user research and interact
 
 Currently, she's developing a video intelligence platform that helps creators brainstorm, edit, and generate content through computer vision and deep learning. The platform integrates geofencing, real-time analytics, and social media automation to help users craft content that resonates globally.
 
-She's also building a stealth AI + geolocation project that leverages Edge AI and real-time policy detection to alert professionals about regulatory risks as they move—merging AI ethics, compliance innovation, and mobile UX design into one seamless experience.`,
+She's also building a stealth AI + geolocation project for a client that leverages Edge AI and real-time policy detection to alert professionals about regulatory risks as they move—merging AI ethics, compliance innovation, and mobile UX design into one seamless experience.`,
   approach: `My philosophy centers on three pillars: human-centered design, intelligent automation, and seamless integration.
 
 Great products start with deep user empathy. I begin every project with research and discovery, mapping user journeys and pain points before touching a single pixel. From wireframes to high-fidelity prototypes, I craft interfaces that feel intuitive from the first interaction.
