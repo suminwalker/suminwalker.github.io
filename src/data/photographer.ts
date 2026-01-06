@@ -3,7 +3,7 @@ import type { PhotographerInfo } from '@/types';
 export const photographerInfo: PhotographerInfo = {
   name: 'Sumin Walker',
   tagline: 'Product Designer & AI App Developer',
-  heroIntroduction: 'Designing and building intelligent apps that transform ideas into delightful user experiences.',
+  heroIntroduction: 'Designing and developing human-centered products powered by AI, computer vision, and creativity.',
   biography: `Sumin Walker is a product designer and app developer specializing in AI-driven mobile and desktop applications. With hands-on experience in computer vision, generative AI, and multimodal design systems, she transforms complex technologies into intuitive user experiences.
 
 Her expertise spans the full product lifecycle—from user research and interaction design to building scalable, production-ready MVPs using AI-powered pipelines. Sumin bridges design and development through a human-centered, data-informed approach that makes every interface both intelligent and effortless.
