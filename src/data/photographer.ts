@@ -2,23 +2,26 @@ import type { PhotographerInfo } from '@/types';
 
 export const photographerInfo: PhotographerInfo = {
   name: 'Sumin Walker',
-  tagline: 'Mobile & Desktop App Developer',
-  heroIntroduction: 'Building intelligent apps and MVPs that transform ideas into powerful user experiences.',
-  biography: `Sumin Walker is a seasoned app developer specializing in mobile (iOS and Android) and desktop applications, with a proven track record of bringing MVPs to life. Her expertise spans the full product development lifecycle—from concept validation to scalable, production-ready solutions.
+  tagline: 'Product Designer & App Developer',
+  heroIntroduction: 'Designing and building intelligent apps that transform ideas into delightful user experiences.',
+  biography: `Sumin Walker is a product designer and app developer specializing in mobile (iOS and Android) and desktop applications, with a proven track record of bringing MVPs to life. Her expertise spans the full product development lifecycle—from user research and UI/UX design to scalable, production-ready solutions.
+
+With a deep foundation in product design, Sumin crafts intuitive interfaces and seamless user experiences that put people first. She bridges the gap between design and development, ensuring every pixel serves a purpose and every interaction feels natural.
 
 Currently, Sumin is developing an innovative video editing and generation platform powered by AI. The app helps creators brainstorm content that resonates with audiences, generate new videos, and streamline the editing process. It features deep social media channel integration and geofencing capabilities for location-aware content strategies.
 
 She's also working on a stealth-mode project that leverages AI and geolocation technology to provide real-time policy notifications. The app alerts users to regulatory changes as they cross state borders or approach restricted areas—solving a critical compliance challenge for mobile professionals.`,
-  approach: `My development philosophy centers on three pillars: user-first design, intelligent automation, and seamless integration.
+  approach: `My philosophy centers on three pillars: human-centered design, intelligent automation, and seamless integration.
 
-I believe the best apps anticipate user needs before they arise. By combining AI capabilities with location-aware features like geofencing, I create experiences that feel intuitive and contextually relevant. Every MVP I build is architected for growth—starting lean but ready to scale.
+Great products start with deep user empathy. I begin every project with research and discovery, mapping user journeys and pain points before touching a single pixel. From wireframes to high-fidelity prototypes, I craft interfaces that feel intuitive from the first interaction.
 
-Whether it's integrating social media APIs, implementing real-time notifications, or building AI-powered content tools, I focus on shipping products that solve real problems and delight users.`,
+By combining thoughtful UI/UX design with AI capabilities and location-aware features, I create experiences that anticipate user needs. Every MVP I build balances beautiful design with solid architecture—starting lean but ready to scale.`,
   awards: [
+    'Product Design & UI/UX',
     'AI-Powered Video Creation Platform — Shipped 2024',
     'Real-Time Geofencing Notification System — In Development',
-    'Cross-Platform Mobile & Desktop Expertise',
-    'End-to-End MVP Development'
+    'Cross-Platform Mobile & Desktop Development',
+    'End-to-End MVP Design & Development'
   ],
   clients: [
     'Content Creators',
