@@ -39,6 +39,12 @@ const contactFormSchema = z.object({
   projectType: z.enum(['website', 'prototype', 'mvp', 'full-app'], {
     required_error: 'Please select a project type',
   }),
+  timeline: z.enum(['asap', '1-2-weeks', '1-month', '2-3-months', 'flexible'], {
+    required_error: 'Please select a timeline',
+  }),
+  budget: z.enum(['under-5k', '5k-10k', '10k-25k', '25k-50k', '50k-plus'], {
+    required_error: 'Please select a budget range',
+  }),
   message: z
     .string()
     .trim()
@@ -62,6 +68,8 @@ export function ContactForm() {
       name: '',
       email: '',
       projectType: undefined,
+      timeline: undefined,
+      budget: undefined,
       message: '',
     },
   });
@@ -75,6 +83,8 @@ export function ContactForm() {
           name: data.name,
           email: data.email,
           projectType: data.projectType,
+          timeline: data.timeline,
+          budget: data.budget,
           message: data.message,
         },
       });
@@ -185,7 +195,7 @@ export function ContactForm() {
                     <SelectValue placeholder="Select project type" />
                   </SelectTrigger>
                 </FormControl>
-                <SelectContent className="bg-background border border-border shadow-lg z-[100]" position="popper" sideOffset={4}>
+                <SelectContent className="bg-white border border-gray-300 shadow-lg z-[100]" position="popper" sideOffset={4}>
                   <SelectItem value="website" className="font-light">
                     Website
                   </SelectItem>
@@ -197,6 +207,82 @@ export function ContactForm() {
                   </SelectItem>
                   <SelectItem value="full-app" className="font-light">
                     Full App
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage className="text-xs font-light" />
+            </FormItem>
+          )}
+        />
+
+        {/* Timeline Select */}
+        <FormField
+          control={form.control}
+          name="timeline"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-sm font-light tracking-wide">
+                Timeline
+              </FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger className="font-light">
+                    <SelectValue placeholder="When do you want to start?" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent className="bg-white border border-gray-300 shadow-lg z-[100]" position="popper" sideOffset={4}>
+                  <SelectItem value="asap" className="font-light">
+                    ASAP
+                  </SelectItem>
+                  <SelectItem value="1-2-weeks" className="font-light">
+                    1-2 Weeks
+                  </SelectItem>
+                  <SelectItem value="1-month" className="font-light">
+                    Within a Month
+                  </SelectItem>
+                  <SelectItem value="2-3-months" className="font-light">
+                    2-3 Months
+                  </SelectItem>
+                  <SelectItem value="flexible" className="font-light">
+                    Flexible
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage className="text-xs font-light" />
+            </FormItem>
+          )}
+        />
+
+        {/* Budget Select */}
+        <FormField
+          control={form.control}
+          name="budget"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-sm font-light tracking-wide">
+                Budget Range
+              </FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger className="font-light">
+                    <SelectValue placeholder="Select your budget" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent className="bg-white border border-gray-300 shadow-lg z-[100]" position="popper" sideOffset={4}>
+                  <SelectItem value="under-5k" className="font-light">
+                    Under $5,000
+                  </SelectItem>
+                  <SelectItem value="5k-10k" className="font-light">
+                    $5,000 - $10,000
+                  </SelectItem>
+                  <SelectItem value="10k-25k" className="font-light">
+                    $10,000 - $25,000
+                  </SelectItem>
+                  <SelectItem value="25k-50k" className="font-light">
+                    $25,000 - $50,000
+                  </SelectItem>
+                  <SelectItem value="50k-plus" className="font-light">
+                    $50,000+
                   </SelectItem>
                 </SelectContent>
               </Select>
