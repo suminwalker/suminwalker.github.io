@@ -40,18 +40,18 @@ export function ProjectCard({
         to={`/project/${project.slug}`}
         className="group block relative overflow-hidden rounded-sm"
       >
-        {/* Image Container */}
-        <div className={cn('relative overflow-hidden bg-muted', aspectRatioClasses[ratio])}>
+        {/* Image Container - no cropping */}
+        <div className="relative overflow-hidden bg-muted">
           {/* Loading placeholder */}
           {!isLoaded && (
-            <div className="absolute inset-0 bg-muted" />
+            <div className="absolute inset-0 bg-muted min-h-[200px]" />
           )}
           
           <motion.img
             src={project.coverImage}
             alt={project.title}
             className={cn(
-              'absolute inset-0 w-full h-full object-cover transition-all duration-700',
+              'w-full h-auto transition-all duration-700',
               isLoaded ? 'opacity-100' : 'opacity-0',
               'group-hover:scale-110'
             )}
