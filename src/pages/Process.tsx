@@ -108,7 +108,6 @@ export default function Process() {
                       <span className="text-5xl md:text-6xl font-light text-muted-foreground/30">
                         {step.number}
                       </span>
-                      <step.icon className="size-6 text-foreground" />
                     </div>
 
                     {/* Step Content */}
