@@ -55,17 +55,11 @@ export default function About() {
                   loop
                   playsInline
                   preload="metadata"
-                  poster="https://images.pexels.com/videos/3888252/afro-hair-fashion-model-3888252.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"
                   className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    target.style.display = 'none';
-                  }}
                 >
-                  <source src="https://videos.pexels.com/video-files/3888252/3888252-sd_426_226_25fps.mp4" type="video/mp4" />
+                  <source src="/videos/About_Video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                {/* Video from Pexels */}
               </div>
               
               {/* Social Links */}
