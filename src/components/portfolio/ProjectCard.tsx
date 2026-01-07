@@ -41,7 +41,7 @@ export function ProjectCard({
         className="group block relative overflow-hidden rounded-sm"
       >
         {/* Image/Video Container - fixed aspect ratio ensures same height */}
-        <div className="relative overflow-hidden bg-muted aspect-[4/3]">
+        <div className="relative overflow-hidden bg-background md:bg-muted aspect-[4/3]">
           {/* Loading placeholder */}
           {!isLoaded && (
             <div className="absolute inset-0 bg-muted" />
