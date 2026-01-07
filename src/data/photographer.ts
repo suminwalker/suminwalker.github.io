@@ -32,9 +32,7 @@ By combining thoughtful UI/UX design with AI capabilities and location-aware fea
   phone: '+1 (555) 123-4567',
   availability: 'Currently accepting new projects',
   socialLinks: {
-    instagram: 'https://instagram.com/suminwalker',
-    linkedin: 'https://linkedin.com/in/suminwalker',
-    behance: 'https://github.com/suminwalker'
+    linkedin: 'https://www.linkedin.com/in/sumin-walker/'
   },
   portraitImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwd29tYW4lMjB0ZWNofGVufDB8fHx8MTcwOTkxNjk4Nnww&ixlib=rb-4.0.3&q=80&w=1080'
 };
