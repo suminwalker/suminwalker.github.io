@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { ArrowUp, ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 export function BackToTop() {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isAtBottom, setIsAtBottom] = useState(false);
+  const location = useLocation();
+  
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +30,8 @@ export function BackToTop() {
   const scrollToBottom = () => {
     window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
   };
+
+  if (!isHomePage) return null;
 
   return (
     <>
