@@ -3,7 +3,6 @@ import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
-import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { photographerInfo } from '@/data/photographer';
@@ -41,7 +40,7 @@ export function Header() {
           : 'bg-background/90 backdrop-blur-lg border-b border-border shadow-sm'
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
@@ -87,18 +86,10 @@ export function Header() {
                   </Link>
                 </motion.div>
               ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-            >
-              <ThemeToggle />
-            </motion.div>
           </nav>
 
           {/* Mobile Menu */}
           <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
