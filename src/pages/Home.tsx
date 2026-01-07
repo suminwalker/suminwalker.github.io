@@ -6,8 +6,9 @@ import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { TypewriterText } from '@/components/ui/TypewriterText';
 import { SEOHead } from '@/components/seo/SEOHead';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, GripVertical } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable';
 
 /**
  * Homepage with immersive hero section and featured projects grid
@@ -21,10 +22,85 @@ export default function Home() {
       <SEOHead />
       
       <div className="min-h-screen">
-        {/* Hero Section - Two column layout */}
-        <section className="relative min-h-screen w-full flex flex-col lg:flex-row">
-          {/* Left Column - Video */}
-          <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-screen">
+        {/* Hero Section - Resizable two column layout */}
+        <section className="relative h-screen w-full hidden lg:block">
+          <ResizablePanelGroup direction="horizontal" className="h-full">
+            {/* Left Panel - Video */}
+            <ResizablePanel defaultSize={50} minSize={30} maxSize={100}>
+              <div className="relative w-full h-full">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/hero_background.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </ResizablePanel>
+
+            {/* Resize Handle */}
+            <ResizableHandle 
+              withHandle 
+              className="w-2 bg-transparent hover:bg-black/10 transition-colors data-[resize-handle-active]:bg-black/20"
+            />
+
+            {/* Right Panel - Text Content */}
+            <ResizablePanel defaultSize={50} minSize={0} maxSize={70}>
+              <div className="w-full h-full flex flex-col items-center justify-center px-8 md:px-16 bg-neutral-100 relative">
+                <motion.div
+                  className="text-center space-y-6 max-w-xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                >
+                  <motion.h1
+                    className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-widest text-black"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                  >
+                    {photographerInfo.name.toUpperCase()}
+                  </motion.h1>
+                  
+                  <motion.p
+                    className="text-xl md:text-2xl font-light tracking-wide text-black/80"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                  >
+                    {photographerInfo.tagline}
+                  </motion.p>
+
+                  <p className="text-base md:text-lg font-light leading-relaxed text-black/70 max-w-md mx-auto">
+                    <TypewriterText 
+                      text={photographerInfo.heroIntroduction} 
+                      delay={1000} 
+                      speed={70}
+                    />
+                  </p>
+                </motion.div>
+
+                {/* Scroll Indicator */}
+                <motion.div
+                  className="absolute bottom-12 left-1/2 -translate-x-1/2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2, duration: 0.8 }}
+                >
+                  <ScrollIndicator />
+                </motion.div>
+              </div>
+            </ResizablePanel>
+          </ResizablePanelGroup>
+        </section>
+
+        {/* Mobile Hero - Stacked layout (no resize) */}
+        <section className="relative min-h-screen w-full flex flex-col lg:hidden">
+          {/* Video */}
+          <div className="relative w-full h-[50vh]">
             <video
               autoPlay
               muted
@@ -37,8 +113,8 @@ export default function Home() {
             </video>
           </div>
 
-          {/* Right Column - Text Content */}
-          <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen flex flex-col items-center justify-center px-8 md:px-16 bg-neutral-100">
+          {/* Text Content */}
+          <div className="w-full h-[50vh] flex flex-col items-center justify-center px-8 bg-neutral-100 relative">
             <motion.div
               className="text-center space-y-6 max-w-xl"
               initial={{ opacity: 0, y: 30 }}
@@ -46,7 +122,7 @@ export default function Home() {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-widest text-black"
+                className="text-5xl md:text-6xl font-extralight tracking-widest text-black"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -74,7 +150,7 @@ export default function Home() {
 
             {/* Scroll Indicator */}
             <motion.div
-              className="absolute bottom-12 left-1/2 lg:left-3/4 -translate-x-1/2"
+              className="absolute bottom-12 left-1/2 -translate-x-1/2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.8 }}
