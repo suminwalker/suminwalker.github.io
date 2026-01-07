@@ -41,7 +41,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className="relative h-full flex flex-col items-center justify-center px-6">
           <motion.div
-            className="text-center space-y-6 max-w-4xl"
+            className="text-center space-y-6 max-w-4xl backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl px-8 py-12 md:px-12 md:py-16 shadow-2xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
