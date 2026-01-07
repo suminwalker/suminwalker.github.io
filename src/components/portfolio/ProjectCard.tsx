@@ -40,11 +40,11 @@ export function ProjectCard({
         to={`/project/${project.slug}`}
         className="group block relative overflow-hidden rounded-sm"
       >
-        {/* Image/Video Container - no cropping */}
-        <div className="relative overflow-hidden bg-muted">
+        {/* Image/Video Container - fixed aspect ratio for alignment */}
+        <div className="relative overflow-hidden bg-muted aspect-video">
           {/* Loading placeholder */}
           {!isLoaded && (
-            <div className="absolute inset-0 bg-muted min-h-[200px]" />
+            <div className="absolute inset-0 bg-muted" />
           )}
           
           {project.coverVideo ? (
@@ -55,7 +55,7 @@ export function ProjectCard({
               muted
               playsInline
               className={cn(
-                'w-full h-auto transition-all duration-700',
+                'w-full h-full object-contain transition-all duration-700',
                 isLoaded ? 'opacity-100' : 'opacity-0',
                 'group-hover:scale-110'
               )}
@@ -66,7 +66,7 @@ export function ProjectCard({
               src={project.coverImage}
               alt={project.title}
               className={cn(
-                'w-full h-auto transition-all duration-700',
+                'w-full h-full object-contain transition-all duration-700',
                 isLoaded ? 'opacity-100' : 'opacity-0',
                 'group-hover:scale-110'
               )}
