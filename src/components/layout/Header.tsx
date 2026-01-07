@@ -33,14 +33,14 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-black/80 backdrop-blur-md border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white border-b border-black/10"
     >
       <div className="max-w-7xl mx-auto px-2 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             to="/"
-            className="text-lg font-light tracking-widest transition-all duration-300 text-white hover:text-white/80"
+            className="text-lg font-light tracking-widest transition-all duration-300 text-black hover:text-black/70"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -62,14 +62,14 @@ export function Header() {
                 >
                   <Link
                     to={link.path}
-                    className="relative text-lg leading-7 font-light tracking-wide text-white transition-colors duration-300 hover:text-white/80"
+                    className="relative text-lg leading-7 font-light tracking-wide text-black transition-colors duration-300 hover:text-black/70"
                   >
                     {link.name}
                     {/* Active underline */}
                     {location.pathname === link.path && (
                       <motion.div
                         layoutId="activeNav"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-white"
+                        className="absolute -bottom-1 left-0 right-0 h-px bg-black"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -85,7 +85,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="size-9 text-white hover:bg-white/10"
+                  className="size-9 text-black hover:bg-black/10"
                   aria-label="Open menu"
                 >
                   <Menu className="size-5" />
