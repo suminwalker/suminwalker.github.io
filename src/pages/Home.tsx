@@ -63,7 +63,7 @@ export default function Home() {
         </section>
 
         {/* Mobile Hero - Full screen */}
-        <section className="relative min-h-[70vh] w-full lg:hidden bg-background">
+        <section className="relative min-h-[35vh] w-full lg:hidden bg-background py-16">
 
           {/* Centered Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
