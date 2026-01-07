@@ -4,9 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { photographerInfo } from '@/data/photographer';
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -80,38 +78,36 @@ export function Header() {
 
           {/* Mobile Menu */}
           <div className="md:hidden flex items-center gap-2">
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="size-9 text-black hover:bg-black/10"
-                  aria-label="Open menu"
-                >
-                  <Menu className="size-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-80">
-                <VisuallyHidden>
-                  <SheetTitle>Navigation Menu</SheetTitle>
-                </VisuallyHidden>
-                <nav className="flex flex-col gap-6 mt-8">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-lg leading-7 font-light tracking-wide text-foreground hover:text-foreground/80"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </nav>
-              </SheetContent>
-            </Sheet>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-9 text-black hover:bg-black/10"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <Menu className="size-5" />
+            </Button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-16 bg-white z-40">
+          <nav className="flex flex-col gap-6 px-4 pt-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg leading-7 font-light tracking-wide text-black hover:text-black/70"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </motion.header>
   );
 }
