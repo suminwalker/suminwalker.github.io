@@ -47,54 +47,34 @@ export default function ProjectDetail() {
         {/* Project Info Section - Above Video */}
         <section className="max-w-7xl mx-auto px-2 lg:px-4 pt-12 md:pt-16 pb-4 md:pb-6">
           <motion.div
-            className="space-y-6"
+            className="space-y-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             {/* Title and Category */}
-            <div className="space-y-3">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide">
-                {project.title}
-              </h1>
-              <div className="flex flex-wrap gap-6 text-sm text-muted-foreground font-light">
-                <div className="flex items-center gap-2">
-                  <Calendar className="size-4" />
-                  <span>{project.year}</span>
-                </div>
-                <div className="flex items-center gap-2">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide">
+              {project.title}
+            </h1>
+            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground font-light">
+              <div className="flex items-center gap-2">
+                <Calendar className="size-4" />
+                <span>{project.year}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>•</span>
+                <span>{project.category === 'production-app' ? 'Full Production App' : project.category === 'web-app' ? 'Mobile & Desktop Web App' : project.category.replace('-', ' ')}</span>
+              </div>
+              {project.location && (
+                <>
                   <span>•</span>
-                  <span>{project.category === 'production-app' ? 'Full Production App' : project.category === 'web-app' ? 'Mobile & Desktop Web App' : project.category.replace('-', ' ')}</span>
-                </div>
-                {project.location && (
-                  <>
-                    <span>•</span>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="size-4" />
-                      <span>{project.location}</span>
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* Description - reduced spacing */}
-            <p className="text-lg md:text-xl font-light leading-relaxed text-foreground max-w-3xl">
-              {project.description}
-            </p>
-
-            {/* Technical Details */}
-            {project.camera && (
-              <div className="pt-2">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
-                    <Camera className="size-4" />
-                    <span>Camera</span>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="size-4" />
+                    <span>{project.location}</span>
                   </div>
-                  <p className="font-light text-foreground">{project.camera}</p>
-                </div>
-              </div>
-            )}
+                </>
+              )}
+            </div>
           </motion.div>
         </section>
 
@@ -124,6 +104,21 @@ export default function ProjectDetail() {
             />
           )}
         </motion.div>
+
+        {/* Description - Below Video, Center Aligned */}
+        <section className="py-12 md:py-16 px-6 lg:px-8">
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-lg md:text-xl font-light leading-relaxed text-foreground">
+              {project.description}
+            </p>
+          </motion.div>
+        </section>
 
         {/* Image Gallery - Edge to edge */}
         <section className="py-12 md:py-16">
