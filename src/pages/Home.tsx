@@ -91,9 +91,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <ScrollReveal>
               <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-light tracking-wide">
-              About My Work
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-light tracking-wide">About Sumin's Work</h2>
             <div className="space-y-4 text-lg font-light leading-relaxed text-muted-foreground text-left">
               <p>
                 Sumin Walker is a product designer and app developer focused on creating AI-driven, cross-platform experiences across mobile, web, and desktop. She designs and builds everything from websites and interactive prototypes to scalable MVPs and full production apps. With expertise in computer vision, generative AI, and multimodal design systems, she bridges design and engineering to turn complex technologies into intuitive, human-centered products.
