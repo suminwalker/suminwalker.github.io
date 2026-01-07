@@ -48,7 +48,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
             >
-              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted">
+              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted hidden md:block">
                 {/* Desktop: Video */}
                 <video
                   autoPlay
@@ -56,14 +56,10 @@ export default function About() {
                   loop
                   playsInline
                   preload="auto"
-                  className="absolute inset-0 w-full h-full object-cover hidden md:block"
+                  className="absolute inset-0 w-full h-full object-cover"
                 >
                   <source src="/videos/About_Video.mp4" type="video/mp4" />
                 </video>
-                {/* Mobile: Static gradient placeholder for instant loading */}
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 md:hidden flex items-center justify-center">
-                  <span className="text-white/60 text-lg font-light tracking-wide">Sumin Walker</span>
-                </div>
               </div>
               
               {/* Social Links */}
