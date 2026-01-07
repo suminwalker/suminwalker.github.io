@@ -13,7 +13,7 @@ export const projects: Project[] = [
   {
     id: '1',
     title: 'Better Video AI',
-    category: 'web-app',
+    category: 'production-app',
     year: '2026',
     slug: 'better-video-ai',
     coverImage: betterVideoAiLanding,
