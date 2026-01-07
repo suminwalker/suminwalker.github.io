@@ -4,6 +4,7 @@ import type { Project } from '@/types';
 import betterVideoAiLanding from '@/assets/better-video-ai-landing.png';
 import betterVideoAiFeatures from '@/assets/better-video-ai-features.png';
 import betterVideoAiDashboard from '@/assets/better-video-ai-dashboard.png';
+import betterVideoAiDemo from '@/assets/better-video-ai-demo.mp4';
 import deckCraftHero from '@/assets/deckcraft-hero.png';
 import deckCraftFeatures from '@/assets/deckcraft-features.png';
 import deckCraftLab from '@/assets/deckcraft-lab.png';
@@ -16,6 +17,7 @@ export const projects: Project[] = [
     year: '2026',
     slug: 'better-video-ai',
     coverImage: betterVideoAiLanding,
+    coverVideo: betterVideoAiDemo,
     description: 'Better Video AI is a video assistant that helps people create better videos—faster and with less guesswork. You upload a video (or describe what you want to make), and the platform analyzes things like pacing, visuals, framing, lighting, structure, and engagement to give clear, actionable feedback and suggestions. It can help you brainstorm ideas, improve edits, and adapt content for different platforms, all without needing technical skills. Behind the scenes, Better Video AI uses computer vision and advanced AI models to "watch" and understand videos the way a human creative director would—turning complex video analysis into simple guidance anyone can use.',
     client: 'Personal Project',
     camera: 'Mobile & Desktop App',

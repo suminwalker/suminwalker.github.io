@@ -21,6 +21,7 @@ export interface Project {
   category: ProjectCategory;
   year: string;
   coverImage: string;
+  coverVideo?: string;
   images: ProjectImage[];
   description: string;
   client?: string;

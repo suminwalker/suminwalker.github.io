@@ -40,24 +40,40 @@ export function ProjectCard({
         to={`/project/${project.slug}`}
         className="group block relative overflow-hidden rounded-sm"
       >
-        {/* Image Container - no cropping */}
+        {/* Image/Video Container - no cropping */}
         <div className="relative overflow-hidden bg-muted">
           {/* Loading placeholder */}
           {!isLoaded && (
             <div className="absolute inset-0 bg-muted min-h-[200px]" />
           )}
           
-          <motion.img
-            src={project.coverImage}
-            alt={project.title}
-            className={cn(
-              'w-full h-auto transition-all duration-700',
-              isLoaded ? 'opacity-100' : 'opacity-0',
-              'group-hover:scale-110'
-            )}
-            loading={index < 6 ? 'eager' : 'lazy'}
-            onLoad={() => setIsLoaded(true)}
-          />
+          {project.coverVideo ? (
+            <video
+              src={project.coverVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={cn(
+                'w-full h-auto transition-all duration-700',
+                isLoaded ? 'opacity-100' : 'opacity-0',
+                'group-hover:scale-110'
+              )}
+              onLoadedData={() => setIsLoaded(true)}
+            />
+          ) : (
+            <motion.img
+              src={project.coverImage}
+              alt={project.title}
+              className={cn(
+                'w-full h-auto transition-all duration-700',
+                isLoaded ? 'opacity-100' : 'opacity-0',
+                'group-hover:scale-110'
+              )}
+              loading={index < 6 ? 'eager' : 'lazy'}
+              onLoad={() => setIsLoaded(true)}
+            />
+          )}
           
           {/* Overlay with gradient and text */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
