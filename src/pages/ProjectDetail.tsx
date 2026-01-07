@@ -45,7 +45,7 @@ export default function ProjectDetail() {
       
       <div className="min-h-screen">
         {/* Project Info Section - Above Video */}
-        <section className="max-w-4xl mx-auto px-6 lg:px-8 pt-12 md:pt-16 pb-4 md:pb-6">
+        <section className="max-w-4xl mx-auto px-3 lg:px-4 pt-12 md:pt-16 pb-4 md:pb-6">
           <motion.div
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
