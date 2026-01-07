@@ -4,13 +4,9 @@ export const photographerInfo: PhotographerInfo = {
   name: 'Sumin Walker',
   tagline: 'Product Designer & AI App Developer',
   heroIntroduction: 'Designing and developing human-centered products powered by AI, computer vision, and creativity.',
-  biography: `Sumin Walker is a product designer and app developer specializing in AI-driven mobile and desktop applications. With hands-on experience in computer vision, generative AI, and multimodal design systems, she transforms complex technologies into intuitive user experiences.
+  biography: `Sumin Walker is a product designer and app developer specializing in AI-driven mobile and desktop applications. With expertise in computer vision, generative AI, and multimodal design systems, she transforms complex technologies into intuitive, human-centered experiences that feel effortless and intelligent. Her work spans the full product lifecycle—from research and interaction design to developing scalable, production-ready MVPs using AI-powered pipelines.
 
-Her expertise spans the full product lifecycle—from user research and interaction design to building scalable, production-ready MVPs using AI-powered pipelines. Sumin bridges design and development through a human-centered, data-informed approach that makes every interface both intelligent and effortless.
-
-Currently, she's developing a video intelligence platform that helps creators brainstorm, edit, and generate content through computer vision and deep learning. The platform integrates geofencing, real-time analytics, and social media automation to help users craft content that resonates globally.
-
-She's also building a stealth AI + geolocation project for a client that leverages Edge AI and real-time policy detection to alert professionals about regulatory risks as they move—merging AI ethics, compliance innovation, and mobile UX design into one seamless experience.`,
+Currently, she's building a video intelligence platform that helps creators brainstorm, edit, and generate content using computer vision and deep learning, complete with geofencing, real-time analytics, and social automation. In parallel, she's led the development of a stealth AI + geolocation MVP project that uses Edge AI and real-time policy detection to alert professionals to regulatory risks as they move—merging AI ethics, compliance innovation, and mobile UX design into one seamless experience.`,
   approach: `My philosophy centers on three pillars: human-centered design, intelligent automation, and seamless integration.
 
 Great products start with deep user empathy. I begin every project with research and discovery, mapping user journeys and pain points before touching a single pixel. From wireframes to high-fidelity prototypes, I craft interfaces that feel intuitive from the first interaction.
