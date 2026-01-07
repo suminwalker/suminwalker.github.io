@@ -100,7 +100,6 @@ export default function ProjectDetail() {
               alt={project.title}
               className="w-full h-auto"
               loading="eager"
-              fetchPriority="high"
             />
           )}
         </motion.div>

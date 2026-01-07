@@ -18,7 +18,8 @@ import { useVideoPreloader } from "@/hooks/useVideoPreloader";
 // Code-split route components for better performance
 const Index = lazy(() => import("./pages/Index"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+// ProjectDetail loaded eagerly since assets are preloaded
+import ProjectDetail from "./pages/ProjectDetail";
 const Process = lazy(() => import("./pages/Process"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
