@@ -8,7 +8,6 @@ import { Layout } from "@/components/layout/Layout";
 import { SkipToContent } from "@/components/ui/SkipToContent";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { BackToTop } from "@/components/ui/BackToTop";
-import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -102,8 +101,8 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
-            <ScrollProgress />
             <BackToTop />
+            <SkipToContent />
             <SkipToContent />
             <Layout>
               <Suspense fallback={<LoadingFallback />}>
