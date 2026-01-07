@@ -121,7 +121,7 @@ export default function ProjectDetail() {
         </section>
 
         {/* Image Gallery - Edge to edge */}
-        <section className="py-12 md:py-16">
+        <section className="pb-12 md:pb-16">
           <div className="space-y-8 md:space-y-12">
             {project.images.map((image, index) => (
               <ScrollReveal key={image.id} delay={index * 0.1}>
