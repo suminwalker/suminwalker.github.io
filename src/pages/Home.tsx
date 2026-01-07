@@ -4,6 +4,7 @@ import { getFeaturedProjects } from '@/data/projects';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { TypewriterText } from '@/components/ui/TypewriterText';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -62,14 +63,13 @@ export default function Home() {
                 {photographerInfo.tagline}
               </motion.p>
 
-              <motion.p
-                className="text-base md:text-lg font-light leading-relaxed text-black/70 max-w-md mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-              >
-                {photographerInfo.heroIntroduction}
-              </motion.p>
+              <p className="text-base md:text-lg font-light leading-relaxed text-black/70 max-w-md mx-auto">
+                <TypewriterText 
+                  text={photographerInfo.heroIntroduction} 
+                  delay={1000} 
+                  speed={35}
+                />
+              </p>
             </motion.div>
 
             {/* Scroll Indicator */}
