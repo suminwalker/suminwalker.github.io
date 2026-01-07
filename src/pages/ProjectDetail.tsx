@@ -91,9 +91,9 @@ export default function ProjectDetail() {
                 <Calendar className="size-4" />
                 <span>{project.year}</span>
               </div>
-              <div className="flex items-center gap-2 capitalize">
+              <div className="flex items-center gap-2">
                 <span>•</span>
-                <span>{project.category}</span>
+                <span>{project.category === 'production-app' ? 'Full Production App' : project.category.replace('-', ' ')}</span>
               </div>
               {project.location && (
                 <>
