@@ -45,12 +45,7 @@ export function Header() {
           {/* Logo */}
           <Link
             to="/"
-            className={cn(
-              'text-lg font-light tracking-widest transition-all duration-300',
-              isTransparent
-                ? 'text-white hover:text-white/80'
-                : 'text-foreground hover:text-foreground/80'
-            )}
+            className="text-lg font-light tracking-widest transition-all duration-300 text-black hover:text-black/70"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -72,14 +67,14 @@ export function Header() {
                 >
                   <Link
                     to={link.path}
-                    className="relative text-lg leading-7 font-light tracking-wide text-white transition-colors duration-300 hover:text-white/80"
+                    className="relative text-lg leading-7 font-light tracking-wide text-black transition-colors duration-300 hover:text-black/70"
                   >
                     {link.name}
                     {/* Active underline */}
                     {location.pathname === link.path && (
                       <motion.div
                         layoutId="activeNav"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-white"
+                        className="absolute -bottom-1 left-0 right-0 h-px bg-black"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -95,10 +90,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={cn(
-                    'size-9',
-                    isTransparent && 'text-white hover:bg-white/10'
-                  )}
+                  className="size-9 text-black hover:bg-black/10"
                   aria-label="Open menu"
                 >
                   <Menu className="size-5" />
