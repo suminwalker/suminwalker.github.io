@@ -88,10 +88,12 @@ export default function ProjectDetail() {
           {project.coverVideo ? (
             <video
               src={project.coverVideo}
+              poster={project.coverImage}
               autoPlay
               loop
               muted
               playsInline
+              preload="auto"
               className="w-full h-auto"
             />
           ) : (
