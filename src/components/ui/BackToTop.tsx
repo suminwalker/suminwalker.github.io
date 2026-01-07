@@ -44,7 +44,7 @@ export function BackToTop() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
             onClick={scrollToBottom}
-            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-600 transition-colors"
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-foreground/70 hover:text-foreground transition-colors"
             aria-label="Scroll down"
           >
             <motion.div
@@ -72,7 +72,7 @@ export function BackToTop() {
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-600 transition-colors"
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-foreground/70 hover:text-foreground transition-colors"
             aria-label="Scroll to top"
           >
             <motion.div

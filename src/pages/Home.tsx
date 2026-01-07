@@ -152,14 +152,14 @@ export default function Home() {
         </section>
 
         {/* Featured Projects Section */}
-        <section className="py-24 md:py-32 border-t border-border bg-neutral-100">
+        <section className="py-24 md:py-32 border-t border-border bg-background">
           {/* Section Header */}
           <ScrollReveal>
             <div className="text-center mb-16 space-y-4 px-6">
-              <h2 className="text-4xl md:text-5xl font-light tracking-wide text-black">
+              <h2 className="text-4xl md:text-5xl font-light tracking-wide text-foreground">
                 Featured Projects
               </h2>
-              <p className="text-lg text-black/70 font-light tracking-wide">
+              <p className="text-lg text-muted-foreground font-light tracking-wide">
                 A selection of recent work
               </p>
             </div>
@@ -185,7 +185,7 @@ export default function Home() {
             <div className="flex justify-center mt-16 px-6">
               <Link
                 to="/portfolio"
-                className="group inline-flex items-center gap-2 text-lg font-light tracking-wide text-black hover:text-black/70 transition-colors"
+                className="group inline-flex items-center gap-2 text-lg font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors"
               >
                 <span>View All Projects</span>
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
