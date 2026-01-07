@@ -212,7 +212,7 @@ export default function Home() {
 
           {/* Projects Grid - Aligned with header container */}
           <div className="max-w-7xl mx-auto px-2 lg:px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-stretch">
               {featuredProjects.map((project, index) => (
                 <ProjectCard
                   key={project.id}
