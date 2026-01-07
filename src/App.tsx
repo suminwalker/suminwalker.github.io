@@ -13,6 +13,7 @@ import { PageTransition } from "@/components/ui/PageTransition";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { AnimatePresence } from "framer-motion";
 import { lazy, Suspense } from "react";
+import { useVideoPreloader } from "@/hooks/useVideoPreloader";
 
 // Code-split route components for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -92,11 +93,17 @@ function AnimatedRoutes() {
   );
 }
 
+function VideoPreloader() {
+  useVideoPreloader();
+  return null;
+}
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <TooltipProvider>
+          <VideoPreloader />
           <Toaster />
           <Sonner />
           <BrowserRouter>
