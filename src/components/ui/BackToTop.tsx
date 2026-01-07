@@ -38,25 +38,39 @@ export function BackToTop() {
     <>
       {/* Dot Navigation - Desktop only, right side */}
       <div className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-50 flex-col items-center">
-        <div className="flex flex-col gap-3">
+        <div className="relative flex flex-col gap-3">
+          {/* Background track line */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-[2px] bg-neutral-200" />
+          
+          {/* Progress fill line */}
+          <motion.div 
+            className="absolute left-1/2 -translate-x-1/2 top-2 w-[2px] bg-primary origin-top"
+            style={{ 
+              height: `calc(100% - 16px)`,
+              scaleY: scrollProgress,
+            }}
+            transition={{ duration: 0.1, ease: "easeOut" }}
+          />
+          
+          {/* Dots */}
           {Array.from({ length: totalDots }).map((_, i) => (
             <motion.button
               key={i}
               onClick={() => scrollToSection(i)}
-              className="group relative w-4 h-4 flex items-center justify-center cursor-pointer"
+              className="group relative w-4 h-4 flex items-center justify-center cursor-pointer z-10"
               aria-label={`Scroll to section ${i + 1}`}
               whileHover={{ scale: 1.2 }}
               transition={{ duration: 0.2 }}
             >
-              {/* Outer ring */}
-              <span className={`absolute inset-0 rounded-full border-2 transition-all duration-300 ${
+              {/* Outer ring with background */}
+              <span className={`absolute inset-0 rounded-full border-2 bg-background transition-all duration-300 ${
                 i <= activeDot 
                   ? "border-primary" 
                   : "border-neutral-300 group-hover:border-neutral-400"
               }`} />
               {/* Inner fill */}
               <motion.span 
-                className="w-2 h-2 rounded-full bg-primary"
+                className="relative w-2 h-2 rounded-full bg-primary"
                 initial={false}
                 animate={{ 
                   scale: i <= activeDot ? 1 : 0,
