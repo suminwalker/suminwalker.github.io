@@ -21,24 +21,22 @@ export default function Home() {
       <SEOHead />
       
       <div className="min-h-screen">
-        {/* Hero Section - Single row with video left, text right */}
-        <section className="relative h-screen w-full hidden lg:flex">
-          {/* Left - Video */}
-          <div className="w-1/2 h-full">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="w-full h-full object-cover"
-            >
-              <source src="/videos/hero_background.mp4" type="video/mp4" />
-            </video>
-          </div>
+        {/* Hero Section - Full width video with centered text overlay */}
+        <section className="relative h-screen w-full hidden lg:block">
+          {/* Full-width Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/Home_Background_Video.mp4" type="video/mp4" />
+          </video>
 
-          {/* Right - Text Content */}
-          <div className="w-1/2 h-full flex flex-col items-center justify-center px-8 md:px-16 relative">
+          {/* Centered Text Overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
             <motion.div
               className="text-center space-y-6 max-w-xl"
               initial={{ opacity: 0, y: 30 }}
@@ -46,7 +44,7 @@ export default function Home() {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-widest text-black"
+                className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-widest text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -55,7 +53,7 @@ export default function Home() {
               </motion.h1>
               
               <motion.p
-                className="text-xl md:text-2xl font-light tracking-wide text-black/80"
+                className="text-xl md:text-2xl font-light tracking-wide text-white/90"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -63,7 +61,7 @@ export default function Home() {
                 {photographerInfo.tagline}
               </motion.p>
 
-              <p className="text-base md:text-lg font-light leading-relaxed text-black/70 max-w-md mx-auto">
+              <p className="text-base md:text-lg font-light leading-relaxed text-white/80 max-w-md mx-auto">
                 <TypewriterText 
                   text={photographerInfo.heroIntroduction} 
                   delay={1000} 
@@ -84,24 +82,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mobile Hero - Stacked layout (no resize) */}
-        <section className="relative min-h-screen w-full flex flex-col lg:hidden">
-          {/* Video */}
-          <div className="relative w-full h-[50vh]">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="w-full h-full object-cover"
-            >
-              <source src="/videos/hero_background.mp4" type="video/mp4" />
-            </video>
-          </div>
+        {/* Mobile Hero - Full screen video with overlay */}
+        <section className="relative h-screen w-full lg:hidden">
+          {/* Full-width Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/Home_Background_Video.mp4" type="video/mp4" />
+          </video>
 
-          {/* Text Content */}
-          <div className="w-full h-[50vh] flex flex-col items-center justify-center px-8 relative">
+          {/* Centered Text Overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
             <motion.div
               className="text-center space-y-6 max-w-xl"
               initial={{ opacity: 0, y: 30 }}
@@ -109,7 +105,7 @@ export default function Home() {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <motion.h1
-                className="text-5xl md:text-6xl font-extralight tracking-widest text-black"
+                className="text-5xl md:text-6xl font-extralight tracking-widest text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -118,7 +114,7 @@ export default function Home() {
               </motion.h1>
               
               <motion.p
-                className="text-xl md:text-2xl font-light tracking-wide text-black/80"
+                className="text-xl md:text-2xl font-light tracking-wide text-white/90"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -126,7 +122,7 @@ export default function Home() {
                 {photographerInfo.tagline}
               </motion.p>
 
-              <p className="text-base md:text-lg font-light leading-relaxed text-black/70 max-w-md mx-auto">
+              <p className="text-base md:text-lg font-light leading-relaxed text-white/80 max-w-md mx-auto">
                 <TypewriterText 
                   text={photographerInfo.heroIntroduction} 
                   delay={1000} 
