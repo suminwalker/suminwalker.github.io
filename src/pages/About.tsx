@@ -48,7 +48,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
             >
-              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted" />
+              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted hidden md:block" />
               
               {/* Social Links */}
               <div className="flex items-center gap-4">
