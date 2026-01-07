@@ -84,6 +84,7 @@ export default function Home() {
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
           >
+            <source src="/videos/Home_Background_Video.webm" type="video/webm" />
             <source src="/videos/Home_Background_Video.mp4" type="video/mp4" />
           </video>
 
