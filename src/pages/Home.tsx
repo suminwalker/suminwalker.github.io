@@ -96,10 +96,10 @@ export default function Home() {
             </h2>
             <div className="space-y-4 text-lg font-light leading-relaxed text-muted-foreground text-left">
               <p>
-                Sumin Walker is a product designer and app developer focused on creating AI-driven, cross-platform applications for mobile and web. She combines expertise in computer vision, generative AI, and multimodal design systems to turn complex technology into seamless, human-centered products. Her process bridges design and engineering—spanning user research, interaction architecture, and the development of scalable, production-ready MVPs.
+                Sumin Walker is a product designer and app developer focused on creating AI-driven, cross-platform experiences across mobile, web, and desktop. She designs and builds everything from websites and interactive prototypes to scalable MVPs and full production apps. With expertise in computer vision, generative AI, and multimodal design systems, she bridges design and engineering to turn complex technologies into intuitive, human-centered products.
               </p>
               <p>
-                Driven by a passion for clarity and innovation, Sumin crafts intuitive, data-informed experiences that empower both creators and professionals. Her work brings together machine learning, creative design, and modern UX to build elegant, high-impact tools that enhance the way people create, communicate, and connect.
+                Driven by a passion for clarity and innovation, Sumin crafts data-informed experiences that empower both creators and professionals. Her work blends machine learning, creative design, and modern UX to deliver elegant, high-impact tools that enhance the way people create, communicate, and connect.
               </p>
             </div>
                 <Link
