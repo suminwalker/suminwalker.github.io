@@ -99,7 +99,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden fixed inset-0 top-16 bg-white z-40"
+            className="md:hidden fixed inset-0 top-16 bg-white/95 backdrop-blur-sm z-40"
           >
             <nav className="flex flex-col gap-6 px-4 pt-6">
               {navLinks.map((link, index) => (
