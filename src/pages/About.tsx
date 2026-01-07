@@ -48,20 +48,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
             >
-              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/videos/About_Video.webm" type="video/webm" />
-                  <source src="/videos/About_Video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted" />
               
               {/* Social Links */}
               <div className="flex items-center gap-4">
