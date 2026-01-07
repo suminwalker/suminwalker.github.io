@@ -55,7 +55,7 @@ export function ProjectCard({
               muted
               playsInline
               className={cn(
-                'w-full h-full object-contain transition-all duration-700',
+                'w-full h-full object-cover transition-all duration-700',
                 isLoaded ? 'opacity-100' : 'opacity-0',
                 'group-hover:scale-110'
               )}
@@ -66,7 +66,7 @@ export function ProjectCard({
               src={project.coverImage}
               alt={project.title}
               className={cn(
-                'w-full h-full object-contain transition-all duration-700',
+                'w-full h-full object-cover transition-all duration-700',
                 isLoaded ? 'opacity-100' : 'opacity-0',
                 'group-hover:scale-110'
               )}
