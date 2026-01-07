@@ -51,7 +51,7 @@ export const projects: Project[] = [
     slug: 'deckcraft',
     coverImage: deckCraftHero,
     coverVideo: deckCraftDemo,
-    description: 'Presentation intelligence platform that uses AI to analyze, understand, and transform decks into compelling stories. Features multimodal analysis, typography audits, layout alignment, and story flow analysis.',
+    description: 'DeckCraft is an AI-powered presentation agent that helps people create clearer, more polished slide decks without needing design expertise. You can upload a presentation or start from an idea, and DeckCraft reviews layout, spacing, visual hierarchy, color and font consistency, and how well each slide supports your message and audience. It then suggests improvements to structure, design, and flow so your deck looks professional and communicates more effectively. Under the hood, DeckCraft uses AI and computer vision to understand slide layouts and visual patterns, combining design best practices with intelligent automation to turn rough slides into confident, presentation-ready decks.',
     client: 'Personal Project',
     camera: 'Web Application',
     images: [
