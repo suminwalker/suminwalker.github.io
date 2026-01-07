@@ -32,14 +32,14 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white border-b border-black/10"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-background border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-2 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             to="/"
-            className="text-lg font-light tracking-widest transition-all duration-300 text-black hover:text-black/70"
+            className="text-lg font-light tracking-widest transition-all duration-300 text-foreground hover:text-muted-foreground"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -61,14 +61,14 @@ export function Header() {
                 >
                   <Link
                     to={link.path}
-                    className="relative text-lg leading-7 font-light tracking-wide text-black transition-colors duration-300 hover:text-black/70"
+                    className="relative text-lg leading-7 font-light tracking-wide text-foreground transition-colors duration-300 hover:text-muted-foreground"
                   >
                     {link.name}
                     {/* Active underline */}
                     {location.pathname === link.path && (
                       <motion.div
                         layoutId="activeNav"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-black"
+                        className="absolute -bottom-1 left-0 right-0 h-px bg-foreground"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -82,7 +82,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="size-9 text-black hover:bg-black/10"
+              className="size-9 text-foreground hover:bg-accent"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -100,7 +100,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden fixed inset-0 top-16 bg-white/95 backdrop-blur-sm z-40"
+            className="md:hidden fixed inset-0 top-16 bg-background/95 backdrop-blur-sm z-40"
           >
             <nav className="flex flex-col gap-6 px-4 pt-6">
               {navLinks.map((link, index) => (
@@ -113,7 +113,7 @@ export function Header() {
                   <Link
                     to={link.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-lg leading-7 font-light tracking-wide text-black hover:text-black/70"
+                    className="text-lg leading-7 font-light tracking-wide text-foreground hover:text-muted-foreground"
                   >
                     {link.name}
                   </Link>
