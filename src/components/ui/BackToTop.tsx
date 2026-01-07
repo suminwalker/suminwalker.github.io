@@ -35,43 +35,54 @@ export function BackToTop() {
   };
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-3">
-      {/* Dot Progress Indicator - Always visible */}
-      <div className="flex flex-col gap-2.5 bg-white/90 backdrop-blur-sm px-2.5 py-4 rounded-full shadow-lg border border-neutral-200">
-        {Array.from({ length: totalDots }).map((_, i) => (
-          <motion.button
-            key={i}
-            onClick={() => scrollToSection(i)}
-            className={`w-3 h-3 rounded-full cursor-pointer transition-colors border-2 ${
-              i <= activeDot 
-                ? "bg-primary border-primary" 
-                : "bg-transparent border-neutral-400 hover:border-primary/70"
-            }`}
-            animate={{
-              scale: i === activeDot ? [1, 1.3, 1] : 1,
-            }}
-            transition={{
-              scale: { duration: 0.4, ease: "easeOut" },
-            }}
-            aria-label={`Scroll to section ${i + 1}`}
-          />
-        ))}
+    <>
+      {/* Dot Navigation - Desktop only, right side */}
+      <div className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-50 flex-col items-center">
+        <div className="flex flex-col gap-3">
+          {Array.from({ length: totalDots }).map((_, i) => (
+            <motion.button
+              key={i}
+              onClick={() => scrollToSection(i)}
+              className="group relative w-4 h-4 flex items-center justify-center cursor-pointer"
+              aria-label={`Scroll to section ${i + 1}`}
+              whileHover={{ scale: 1.2 }}
+              transition={{ duration: 0.2 }}
+            >
+              {/* Outer ring */}
+              <span className={`absolute inset-0 rounded-full border-2 transition-all duration-300 ${
+                i <= activeDot 
+                  ? "border-primary" 
+                  : "border-neutral-300 group-hover:border-neutral-400"
+              }`} />
+              {/* Inner fill */}
+              <motion.span 
+                className="w-2 h-2 rounded-full bg-primary"
+                initial={false}
+                animate={{ 
+                  scale: i <= activeDot ? 1 : 0,
+                  opacity: i <= activeDot ? 1 : 0
+                }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              />
+            </motion.button>
+          ))}
+        </div>
       </div>
 
-      {/* Scroll to Top Button - Only at bottom */}
+      {/* Scroll to Top Button - Center aligned, separate from dots */}
       <AnimatePresence>
         {isAtBottom && (
           <motion.button
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
             onClick={scrollToTop}
-            className="flex flex-col items-center gap-1 text-primary hover:text-primary/80 transition-colors mt-2"
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-primary hover:text-primary/80 transition-colors"
             aria-label="Scroll to top"
           >
             <motion.div
-              className="flex flex-col items-center gap-0.5"
+              className="flex flex-col items-center"
               animate={{ y: [0, -4, 0] }}
               transition={{
                 duration: 1.5,
@@ -79,11 +90,11 @@ export function BackToTop() {
                 ease: "easeInOut",
               }}
             >
-              <ArrowUp className="h-4 w-4" />
+              <ArrowUp className="h-5 w-5" />
             </motion.div>
           </motion.button>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }
