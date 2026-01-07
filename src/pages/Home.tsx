@@ -210,17 +210,19 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          {/* Projects Grid - Edge to edge with minimal gaps */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                aspectRatio="landscape"
-                showCategory={true}
-                index={index}
-              />
-            ))}
+          {/* Projects Grid - Aligned with header container */}
+          <div className="max-w-7xl mx-auto px-2 lg:px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
+              {featuredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  aspectRatio="landscape"
+                  showCategory={true}
+                  index={index}
+                />
+              ))}
+            </div>
           </div>
 
           {/* View All Link */}
