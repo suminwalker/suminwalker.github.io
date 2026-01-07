@@ -67,7 +67,7 @@ export default function Home() {
                 <TypewriterText 
                   text={photographerInfo.heroIntroduction} 
                   delay={1000} 
-                  speed={35}
+                  speed={70}
                 />
               </p>
             </motion.div>
