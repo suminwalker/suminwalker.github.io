@@ -35,14 +35,13 @@ export function ProjectCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="h-full flex flex-col"
     >
       <Link
         to={`/project/${project.slug}`}
-        className="group block relative overflow-hidden rounded-sm flex-1 flex flex-col"
+        className="group block relative overflow-hidden rounded-sm"
       >
-        {/* Image/Video Container - stretches to fill available height */}
-        <div className="relative overflow-hidden bg-muted flex-1 min-h-[300px]">
+        {/* Image/Video Container - fixed aspect ratio ensures same height */}
+        <div className="relative overflow-hidden bg-muted aspect-[4/3]">
           {/* Loading placeholder */}
           {!isLoaded && (
             <div className="absolute inset-0 bg-muted" />
