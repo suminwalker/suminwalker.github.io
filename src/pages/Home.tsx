@@ -41,11 +41,21 @@ export default function Home() {
               </div>
             </ResizablePanel>
 
-            {/* Resize Handle */}
-            <ResizableHandle 
-              withHandle 
-              className="w-2 bg-transparent hover:bg-black/10 transition-colors data-[resize-handle-active]:bg-black/20"
-            />
+            {/* Resize Handle with Visual Indicator */}
+            <ResizableHandle className="w-3 bg-transparent hover:bg-black/10 transition-colors data-[resize-handle-active]:bg-black/20 relative group">
+              <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center">
+                {/* Grip indicator */}
+                <div className="flex flex-col gap-1 p-2 rounded-full bg-black/5 group-hover:bg-black/10 transition-colors">
+                  <GripVertical className="size-4 text-black/40 group-hover:text-black/60 transition-colors" />
+                </div>
+                {/* Tooltip */}
+                <div className="absolute left-1/2 -translate-x-1/2 top-[calc(50%+30px)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                  <div className="bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    Drag to resize
+                  </div>
+                </div>
+              </div>
+            </ResizableHandle>
 
             {/* Right Panel - Text Content */}
             <ResizablePanel defaultSize={50} minSize={0} maxSize={70}>
