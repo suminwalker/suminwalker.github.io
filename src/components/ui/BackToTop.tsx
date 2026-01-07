@@ -46,13 +46,19 @@ export function BackToTop() {
           className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3"
         >
           {/* Dot Progress Indicator */}
-          <div className="flex gap-1.5">
+          <div className="flex gap-2">
             {Array.from({ length: totalDots }).map((_, i) => (
               <motion.div
                 key={i}
-                className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${
-                  i <= activeDot ? "bg-primary" : "bg-muted-foreground/30"
-                }`}
+                className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30"
+                animate={{
+                  backgroundColor: i <= activeDot ? "hsl(var(--primary))" : "hsl(var(--muted-foreground) / 0.3)",
+                  scale: i === activeDot ? [1, 1.3, 1] : 1,
+                }}
+                transition={{
+                  backgroundColor: { duration: 0.3 },
+                  scale: { duration: 0.4, ease: "easeOut" },
+                }}
               />
             ))}
           </div>
