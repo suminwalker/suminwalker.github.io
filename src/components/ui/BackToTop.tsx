@@ -50,13 +50,13 @@ export function BackToTop() {
             {Array.from({ length: totalDots }).map((_, i) => (
               <motion.div
                 key={i}
-                className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30"
+                className={`w-2.5 h-2.5 rounded-full ${
+                  i <= activeDot ? "bg-primary" : "bg-muted-foreground/30"
+                }`}
                 animate={{
-                  backgroundColor: i <= activeDot ? "hsl(var(--primary))" : "hsl(var(--muted-foreground) / 0.3)",
-                  scale: i === activeDot ? [1, 1.3, 1] : 1,
+                  scale: i === activeDot ? [1, 1.4, 1] : 1,
                 }}
                 transition={{
-                  backgroundColor: { duration: 0.3 },
                   scale: { duration: 0.4, ease: "easeOut" },
                 }}
               />
