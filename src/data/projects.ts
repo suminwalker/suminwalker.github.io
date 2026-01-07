@@ -16,10 +16,9 @@ export const projects: Project[] = [
     year: '2026',
     slug: 'better-video-ai',
     coverImage: betterVideoAiLanding,
-    description: 'AI-powered video creation platform helping content creators make better content, faster. Features include Digital Twin technology, brand profiles, storyboards, AI captioning, and social scheduling.',
+    description: 'Better Video AI is a video assistant that helps people create better videos—faster and with less guesswork. You upload a video (or describe what you want to make), and the platform analyzes things like pacing, visuals, framing, lighting, structure, and engagement to give clear, actionable feedback and suggestions. It can help you brainstorm ideas, improve edits, and adapt content for different platforms, all without needing technical skills. Behind the scenes, Better Video AI uses computer vision and advanced AI models to "watch" and understand videos the way a human creative director would—turning complex video analysis into simple guidance anyone can use.',
     client: 'Personal Project',
-    camera: 'Web Application',
-    location: 'San Francisco',
+    camera: 'Mobile & Desktop App',
     images: [
       {
         id: '1-1',
@@ -51,7 +50,6 @@ export const projects: Project[] = [
     description: 'Presentation intelligence platform that uses AI to analyze, understand, and transform decks into compelling stories. Features multimodal analysis, typography audits, layout alignment, and story flow analysis.',
     client: 'Personal Project',
     camera: 'Web Application',
-    location: 'San Francisco',
     images: [
       {
         id: '2-1',
