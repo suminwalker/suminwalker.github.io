@@ -41,13 +41,13 @@ export default function Home() {
         {/* Hero Content */}
         <div className="relative h-full flex flex-col items-center justify-center px-6">
           <motion.div
-            className="text-center space-y-6 max-w-4xl backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl px-8 py-12 md:px-12 md:py-16 shadow-2xl"
+            className="text-center space-y-6 max-w-4xl backdrop-blur-md bg-white/30 border border-white/40 rounded-2xl px-8 py-12 md:px-12 md:py-16 shadow-2xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <motion.h1
-              className="text-6xl md:text-8xl lg:text-9xl font-extralight tracking-widest text-white"
+              className="text-6xl md:text-8xl lg:text-9xl font-extralight tracking-widest text-black"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
@@ -56,7 +56,7 @@ export default function Home() {
             </motion.h1>
             
             <motion.p
-              className="text-xl md:text-2xl font-light tracking-wide text-white/90"
+              className="text-xl md:text-2xl font-light tracking-wide text-black/90"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -65,7 +65,7 @@ export default function Home() {
             </motion.p>
 
             <motion.p
-              className="text-base md:text-lg font-light leading-relaxed text-white/80 max-w-2xl mx-auto"
+              className="text-base md:text-lg font-light leading-relaxed text-black/80 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
