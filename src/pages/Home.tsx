@@ -37,7 +37,7 @@ export default function Home() {
           </div>
 
           {/* Right Column - Text Content */}
-          <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen flex flex-col items-center justify-center px-8 md:px-16 bg-white">
+          <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen flex flex-col items-center justify-center px-8 md:px-16 bg-neutral-100">
             <motion.div
               className="text-center space-y-6 max-w-xl"
               initial={{ opacity: 0, y: 30 }}
