@@ -16,6 +16,7 @@ import { lazy, Suspense } from "react";
 const Index = lazy(() => import("./pages/Index"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const Process = lazy(() => import("./pages/Process"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -49,6 +50,14 @@ function AnimatedRoutes() {
           element={
             <PageTransition>
               <ProjectDetail />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/process"
+          element={
+            <PageTransition>
+              <Process />
             </PageTransition>
           }
         />

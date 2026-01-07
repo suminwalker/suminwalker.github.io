@@ -9,6 +9,7 @@ import { photographerInfo } from '@/data/photographer';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Portfolio', path: '/portfolio' },
+  { name: 'Process', path: '/process' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
