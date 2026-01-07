@@ -35,18 +35,20 @@ export function BackToTop() {
   };
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3">
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-3">
       {/* Dot Progress Indicator - Always visible */}
-      <div className="flex gap-2 bg-muted/80 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-md">
+      <div className="flex flex-col gap-2.5 bg-white/90 backdrop-blur-sm px-2.5 py-4 rounded-full shadow-lg border border-neutral-200">
         {Array.from({ length: totalDots }).map((_, i) => (
           <motion.button
             key={i}
             onClick={() => scrollToSection(i)}
-            className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-colors hover:bg-primary/70 ${
-              i <= activeDot ? "bg-primary" : "bg-muted-foreground/30"
+            className={`w-3 h-3 rounded-full cursor-pointer transition-colors border-2 ${
+              i <= activeDot 
+                ? "bg-primary border-primary" 
+                : "bg-transparent border-neutral-400 hover:border-primary/70"
             }`}
             animate={{
-              scale: i === activeDot ? [1, 1.4, 1] : 1,
+              scale: i === activeDot ? [1, 1.3, 1] : 1,
             }}
             transition={{
               scale: { duration: 0.4, ease: "easeOut" },
@@ -65,12 +67,12 @@ export function BackToTop() {
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
             onClick={scrollToTop}
-            className="flex flex-col items-center gap-1 text-primary hover:text-primary/80 transition-colors"
+            className="flex flex-col items-center gap-1 text-primary hover:text-primary/80 transition-colors mt-2"
             aria-label="Scroll to top"
           >
             <motion.div
-              className="flex flex-col items-center gap-1"
-              animate={{ y: [0, -6, 0] }}
+              className="flex flex-col items-center gap-0.5"
+              animate={{ y: [0, -4, 0] }}
               transition={{
                 duration: 1.5,
                 repeat: Infinity,
@@ -78,7 +80,6 @@ export function BackToTop() {
               }}
             >
               <ArrowUp className="h-4 w-4" />
-              <span className="text-xs font-medium tracking-widest uppercase">Top</span>
             </motion.div>
           </motion.button>
         )}
