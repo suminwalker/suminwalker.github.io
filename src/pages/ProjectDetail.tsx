@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Camera, User } from 'lucide-react';
@@ -19,6 +19,25 @@ export default function ProjectDetail() {
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Handle video loading and autoplay
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleCanPlay = () => {
+      setVideoReady(true);
+      // Try to play - muted videos should autoplay
+      video.play().catch(() => {
+        // Autoplay blocked - video will show poster/fallback
+      });
+    };
+
+    video.addEventListener('canplay', handleCanPlay);
+    return () => video.removeEventListener('canplay', handleCanPlay);
+  }, []);
 
   // 404 if project not found
   if (!project) {
@@ -78,30 +97,34 @@ export default function ProjectDetail() {
           </motion.div>
         </section>
 
-        {/* Hero Video/Image - full width, no cropping */}
+        {/* Hero Video/Image - always show image, overlay video when ready */}
         <motion.div
-          className="relative w-full overflow-hidden bg-muted"
+          className="relative w-full overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {project.coverVideo ? (
+          {/* Always render the cover image as base layer */}
+          <img
+            src={project.coverImage}
+            alt={project.title}
+            className="w-full h-auto"
+            loading="eager"
+          />
+          
+          {/* Overlay video on top when available */}
+          {project.coverVideo && (
             <video
+              ref={videoRef}
               src={project.coverVideo}
-              poster={project.coverImage}
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className="w-full h-auto"
-            />
-          ) : (
-            <img
-              src={project.coverImage}
-              alt={project.title}
-              className="w-full h-auto"
-              loading="eager"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                videoReady ? 'opacity-100' : 'opacity-0'
+              }`}
             />
           )}
         </motion.div>
