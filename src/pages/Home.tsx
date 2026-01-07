@@ -20,71 +20,69 @@ export default function Home() {
       <SEOHead />
       
       <div className="min-h-screen">
-        {/* Hero Section - Full viewport with featured image */}
-      <section className="relative h-screen w-full overflow-hidden">
-        {/* Background Video */}
-        <div className="absolute inset-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
-          >
-            <source src="/videos/hero_background.mp4" type="video/mp4" />
-          </video>
-          {/* Gradient Overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative h-full flex flex-col items-center justify-center px-6">
-          <motion.div
-            className="text-center space-y-6 max-w-4xl backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl px-8 py-12 md:px-12 md:py-16 shadow-2xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <motion.h1
-              className="text-6xl md:text-8xl lg:text-9xl font-extralight tracking-widest text-white"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
+        {/* Hero Section - Two column layout */}
+        <section className="relative min-h-screen w-full flex flex-col lg:flex-row">
+          {/* Left Column - Video */}
+          <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-screen">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover"
             >
-              {photographerInfo.name.toUpperCase()}
-            </motion.h1>
-            
-            <motion.p
-              className="text-xl md:text-2xl font-light tracking-wide text-white/90"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-            >
-              {photographerInfo.tagline}
-            </motion.p>
+              <source src="/videos/hero_background.mp4" type="video/mp4" />
+            </video>
+          </div>
 
-            <motion.p
-              className="text-base md:text-lg font-light leading-relaxed text-white/80 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
+          {/* Right Column - Text Content */}
+          <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen flex flex-col items-center justify-center px-8 md:px-16 bg-white">
+            <motion.div
+              className="text-center space-y-6 max-w-xl"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
+              transition={{ duration: 1, ease: "easeOut" }}
             >
-              {photographerInfo.heroIntroduction}
-            </motion.p>
-          </motion.div>
+              <motion.h1
+                className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-widest text-black"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
+                {photographerInfo.name.toUpperCase()}
+              </motion.h1>
+              
+              <motion.p
+                className="text-xl md:text-2xl font-light tracking-wide text-black/80"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.4 }}
+              >
+                {photographerInfo.tagline}
+              </motion.p>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            className="absolute bottom-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-          >
-            <ScrollIndicator />
-          </motion.div>
-        </div>
-      </section>
+              <motion.p
+                className="text-base md:text-lg font-light leading-relaxed text-black/70 max-w-md mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
+                {photographerInfo.heroIntroduction}
+              </motion.p>
+            </motion.div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+              className="absolute bottom-12 left-1/2 lg:left-3/4 -translate-x-1/2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            >
+              <ScrollIndicator />
+            </motion.div>
+          </div>
+        </section>
 
         {/* Introduction Section */}
         <section className="py-24 md:py-32 px-6 lg:px-8 bg-background">
