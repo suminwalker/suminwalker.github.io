@@ -22,18 +22,7 @@ export default function Home() {
       
       <div className="min-h-screen">
         {/* Hero Section - Full width video with centered text overlay */}
-        <section className="relative h-screen w-full hidden lg:block">
-          {/* Full-width Video Background */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/Home_Background_Video.mp4" type="video/mp4" />
-          </video>
+        <section className="relative h-screen w-full hidden lg:block bg-background">
 
           {/* Centered Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
@@ -73,20 +62,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mobile Hero - Full screen video with overlay */}
-        <section className="relative h-screen w-full lg:hidden">
-          {/* Full-width Video Background */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/Home_Background_Video.webm" type="video/webm" />
-            <source src="/videos/Home_Background_Video.mp4" type="video/mp4" />
-          </video>
+        {/* Mobile Hero - Full screen */}
+        <section className="relative h-screen w-full lg:hidden bg-background">
 
           {/* Centered Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
