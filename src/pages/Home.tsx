@@ -29,7 +29,7 @@ export default function Home() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/videos/Home_Background_Video.mp4" type="video/mp4" />
@@ -81,7 +81,7 @@ export default function Home() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/videos/Home_Background_Video.mp4" type="video/mp4" />
