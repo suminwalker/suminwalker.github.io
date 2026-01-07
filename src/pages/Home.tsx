@@ -32,7 +32,7 @@ export default function Home() {
             preload="metadata"
             className="w-full h-full object-cover"
           >
-            <source src="/videos/Portfolio_background.mp4" type="video/mp4" />
+            <source src="/videos/hero_background.mp4" type="video/mp4" />
           </video>
           {/* Gradient Overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
