@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { photographerInfo } from '@/data/photographer';
 import { getFeaturedProjects } from '@/data/projects';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
-import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
+
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { TypewriterText } from '@/components/ui/TypewriterText';
 import { SEOHead } from '@/components/seo/SEOHead';
@@ -70,15 +70,6 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-              className="absolute bottom-12 left-1/2 -translate-x-1/2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            >
-              <ScrollIndicator />
-            </motion.div>
           </div>
         </section>
 
@@ -131,15 +122,6 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-              className="absolute bottom-12 left-1/2 -translate-x-1/2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            >
-              <ScrollIndicator />
-            </motion.div>
           </div>
         </section>
 
