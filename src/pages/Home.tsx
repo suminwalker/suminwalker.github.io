@@ -197,7 +197,7 @@ export default function Home() {
         </section>
 
         {/* Featured Projects Section */}
-        <section className="py-24 md:py-32 border-t border-border bg-white">
+        <section className="py-24 md:py-32 border-t border-border bg-neutral-100">
           {/* Section Header */}
           <ScrollReveal>
             <div className="text-center mb-16 space-y-4 px-6">
