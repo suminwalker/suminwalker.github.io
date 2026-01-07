@@ -1,7 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "https://esm.sh/resend@2.0.0";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -30,35 +29,51 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Processing contact form:", { name, email, projectType });
 
     // Send notification email to you
-    const notificationResponse = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: ["suminwalker@gmail.com"], // Your email address
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <h1>New Contact Form Submission</h1>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Project Type:</strong> ${projectType}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
+    const notificationResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "Contact Form <onboarding@resend.dev>",
+        to: ["design@suminwalker.com"],
+        subject: `New Contact Form Submission from ${name}`,
+        html: `
+          <h1>New Contact Form Submission</h1>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Project Type:</strong> ${projectType}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+        `,
+      }),
     });
 
-    console.log("Notification email sent:", notificationResponse);
+    const notificationData = await notificationResponse.json();
+    console.log("Notification email sent:", notificationData);
 
     // Send confirmation email to the user
-    const confirmationResponse = await resend.emails.send({
-      from: "Sumin Walker <onboarding@resend.dev>",
-      to: [email],
-      subject: "Thank you for reaching out!",
-      html: `
-        <h1>Thank you for contacting me, ${name}!</h1>
-        <p>I have received your message and will get back to you as soon as possible.</p>
-        <p>Best regards,<br>Sumin Walker</p>
-      `,
+    const confirmationResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "Sumin Walker <onboarding@resend.dev>",
+        to: [email],
+        subject: "Thank you for reaching out!",
+        html: `
+          <h1>Thank you for contacting me, ${name}!</h1>
+          <p>I have received your message and will get back to you as soon as possible.</p>
+          <p>Best regards,<br>Sumin Walker</p>
+        `,
+      }),
     });
 
-    console.log("Confirmation email sent:", confirmationResponse);
+    const confirmationData = await confirmationResponse.json();
+    console.log("Confirmation email sent:", confirmationData);
 
     return new Response(
       JSON.stringify({ success: true }),
