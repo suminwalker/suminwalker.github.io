@@ -44,23 +44,34 @@ export default function ProjectDetail() {
       />
       
       <div className="min-h-screen">
-        {/* Hero Image - full width, no cropping */}
-      <motion.div
-        className="relative w-full overflow-hidden bg-muted"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <img
-          src={project.coverImage}
-          alt={project.title}
-          className="w-full h-auto"
-          loading="eager"
-          fetchPriority="high"
-        />
-        {/* Gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-      </motion.div>
+        {/* Hero Video/Image - full width, no cropping */}
+        <motion.div
+          className="relative w-full overflow-hidden bg-muted"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          {project.coverVideo ? (
+            <video
+              src={project.coverVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-auto"
+            />
+          ) : (
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="w-full h-auto"
+              loading="eager"
+              fetchPriority="high"
+            />
+          )}
+          {/* Gradient overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+        </motion.div>
 
       {/* Project Info Section */}
       <section className="max-w-4xl mx-auto px-6 lg:px-8 py-12 md:py-16">
