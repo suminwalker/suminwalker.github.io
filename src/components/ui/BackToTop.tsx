@@ -1,71 +1,82 @@
 import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { ArrowDown, ArrowUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function BackToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [isAtBottom, setIsAtBottom] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      
+      setScrollProgress(progress);
+      setIsAtTop(scrollTop < 100);
+      setIsAtBottom(scrollTop > docHeight - 100);
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleClick = () => {
+    if (isAtTop) {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
-  const circumference = 2 * Math.PI * 20;
+  const showButton = isAtTop || isAtBottom;
+  const totalDots = 5;
+  const activeDot = Math.min(Math.floor(scrollProgress * totalDots), totalDots - 1);
 
   return (
     <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.2 }}
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 p-0 rounded-full bg-background shadow-lg hover:scale-110 transition-transform duration-200"
-          aria-label="Back to top"
+      {showButton && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.3 }}
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3"
         >
-          <div className="relative w-12 h-12 flex items-center justify-center">
-            <svg className="absolute inset-0 w-12 h-12 -rotate-90">
-              <circle
-                cx="24"
-                cy="24"
-                r="20"
-                fill="none"
-                stroke="hsl(var(--muted))"
-                strokeWidth="2"
+          {/* Dot Progress Indicator */}
+          <div className="flex gap-1.5">
+            {Array.from({ length: totalDots }).map((_, i) => (
+              <motion.div
+                key={i}
+                className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${
+                  i <= activeDot ? "bg-primary" : "bg-muted-foreground/30"
+                }`}
               />
-              <motion.circle
-                cx="24"
-                cy="24"
-                r="20"
-                fill="none"
-                stroke="hsl(var(--primary))"
-                strokeWidth="2"
-                strokeLinecap="round"
-                style={{
-                  pathLength: smoothProgress,
-                }}
-                strokeDasharray="1"
-                strokeDashoffset="0"
-              />
-            </svg>
-            <ArrowUp className="h-5 w-5 text-primary" />
+            ))}
           </div>
-        </motion.button>
+
+          {/* Scroll Button */}
+          <motion.button
+            onClick={handleClick}
+            className="flex flex-col items-center gap-1 text-primary hover:text-primary/80 transition-colors"
+            aria-label={isAtTop ? "Scroll down" : "Scroll to top"}
+            animate={{ y: [0, 6, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
+            {isAtTop ? (
+              <ArrowDown className="h-4 w-4" />
+            ) : (
+              <ArrowUp className="h-4 w-4" />
+            )}
+          </motion.button>
+        </motion.div>
       )}
     </AnimatePresence>
   );
