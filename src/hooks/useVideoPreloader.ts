@@ -51,9 +51,6 @@ function preloadVideoImmediately(src: string) {
 
 function preloadImageImmediately(src: string) {
   const img = new Image();
-  // Use high priority for faster loading
-  img.fetchPriority = 'high';
-  img.decoding = 'async';
   img.src = src;
   preloadedImages.push(img);
 }
