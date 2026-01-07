@@ -106,7 +106,7 @@ export default function Home() {
                   to="/about"
                   className="inline-flex items-center gap-2 text-base font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors group"
                 >
-                  <span>Learn More About Me</span>
+                  <span>Learn More About Sumin</span>
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
