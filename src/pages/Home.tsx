@@ -73,8 +73,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mobile Hero - Static gradient background for instant loading */}
-        <section className="relative h-screen w-full lg:hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        {/* Mobile Hero - Full screen video with overlay */}
+        <section className="relative h-screen w-full lg:hidden">
+          {/* Full-width Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/Home_Background_Video.mp4" type="video/mp4" />
+          </video>
+
           {/* Centered Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
             <motion.div
