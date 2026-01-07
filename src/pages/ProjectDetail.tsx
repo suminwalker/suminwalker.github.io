@@ -84,26 +84,15 @@ export default function ProjectDetail() {
             </p>
 
             {/* Technical Details */}
-            {(project.camera || project.client) && (
-              <div className="grid md:grid-cols-2 gap-6 pt-2">
-                {project.camera && (
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
-                      <Camera className="size-4" />
-                      <span>Camera</span>
-                    </div>
-                    <p className="font-light text-foreground">{project.camera}</p>
+            {project.camera && (
+              <div className="pt-2">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
+                    <Camera className="size-4" />
+                    <span>Camera</span>
                   </div>
-                )}
-                {project.client && (
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
-                      <User className="size-4" />
-                      <span>Client</span>
-                    </div>
-                    <p className="font-light text-foreground">{project.client}</p>
-                  </div>
-                )}
+                  <p className="font-light text-foreground">{project.camera}</p>
+                </div>
               </div>
             )}
           </motion.div>

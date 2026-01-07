@@ -20,7 +20,6 @@ export const projects: Project[] = [
     coverImage: betterVideoAiLanding,
     coverVideo: betterVideoAiDemo,
     description: 'Better Video AI is a video assistant that helps people create better videos—faster and with less guesswork. You upload a video (or describe what you want to make), and the platform analyzes things like pacing, visuals, framing, lighting, structure, and engagement to give clear, actionable feedback and suggestions. It can help you brainstorm ideas, improve edits, and adapt content for different platforms, all without needing technical skills. Behind the scenes, Better Video AI uses computer vision and advanced AI models to "watch" and understand videos the way a human creative director would—turning complex video analysis into simple guidance anyone can use.',
-    client: 'Personal Project',
     images: [
       {
         id: '1-1',
@@ -51,7 +50,6 @@ export const projects: Project[] = [
     coverImage: deckCraftHero,
     coverVideo: deckCraftDemo,
     description: "DeckCraft is an AI-powered presentation assistant that helps you create clear, polished slide decks that stay true to your brand. You can start by uploading your brand assets—such as templates, logos, fonts, colors, and key messaging—and DeckCraft uses them as a reference when reviewing your presentation. It analyzes layout, spacing, visual hierarchy, and overall flow, then suggests improvements so every slide looks professional and on-brand. Behind the scenes, DeckCraft uses AI and computer vision to understand slide layouts and design patterns, applying best-practice presentation design automatically—so you don't need design or technical expertise to create great decks.",
-    client: 'Personal Project',
     images: [
       {
         id: '2-1',
