@@ -49,17 +49,21 @@ export default function About() {
               transition={{ duration: 0.4 }}
             >
               <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted">
+                {/* Desktop: Video */}
                 <video
                   autoPlay
                   muted
                   loop
                   playsInline
                   preload="auto"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover hidden md:block"
                 >
                   <source src="/videos/About_Video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
                 </video>
+                {/* Mobile: Static gradient placeholder for instant loading */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 md:hidden flex items-center justify-center">
+                  <span className="text-white/60 text-lg font-light tracking-wide">Sumin Walker</span>
+                </div>
               </div>
               
               {/* Social Links */}
