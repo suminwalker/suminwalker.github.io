@@ -7,7 +7,6 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import GlitchGridOverlay from '@/components/ui/GlitchGridOverlay';
 
 /**
  * Homepage with immersive hero section and featured projects grid
@@ -22,7 +21,7 @@ export default function Home() {
       
       <div className="min-h-screen">
         {/* Hero Section - Full viewport with featured image */}
-      <section className="relative h-screen w-full overflow-hidden bg-black">
+      <section className="relative h-screen w-full overflow-hidden">
         {/* Background Video */}
         <div className="absolute inset-0">
           <video
@@ -31,17 +30,13 @@ export default function Home() {
             loop
             playsInline
             preload="metadata"
-            className="w-full h-full object-cover opacity-40 grayscale-[0.5]"
+            className="w-full h-full object-cover"
           >
             <source src="/videos/Portfolio_background.mp4" type="video/mp4" />
           </video>
+          {/* Gradient Overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
-
-        {/* Glitch Grid Overlay - between video and text */}
-        <GlitchGridOverlay videoSrc="/videos/Portfolio_background.mp4" rows={5} cols={5} />
-
-        {/* Gradient Overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
 
         {/* Hero Content */}
         <div className="relative h-full flex flex-col items-center justify-center px-6">
