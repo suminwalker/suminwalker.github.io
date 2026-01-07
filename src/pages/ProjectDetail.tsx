@@ -64,7 +64,7 @@ export default function ProjectDetail() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span>•</span>
-                  <span>{project.category === 'production-app' ? 'Full Production App' : project.category.replace('-', ' ')}</span>
+                  <span>{project.category === 'production-app' ? 'Full Production App' : project.category === 'web-app' ? 'Mobile & Desktop Web App' : project.category.replace('-', ' ')}</span>
                 </div>
                 {project.location && (
                   <>
