@@ -29,7 +29,7 @@ export default function Portfolio() {
               Portfolio
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide max-w-2xl mx-auto">
-              A curated collection of photography spanning diverse subjects and styles
+              A collection of AI-powered apps I've built
             </p>
           </motion.div>
         </div>
