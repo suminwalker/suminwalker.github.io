@@ -39,7 +39,7 @@ export default function Home() {
           {/* Right Column - Text Content */}
           <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen flex flex-col items-center justify-center px-8 md:px-16 bg-white">
             <motion.div
-              className="text-center space-y-6 max-w-xl"
+              className="text-center space-y-6 max-w-xl backdrop-blur-md bg-black/5 border border-black/10 rounded-2xl px-8 py-12 md:px-12 md:py-16 shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
