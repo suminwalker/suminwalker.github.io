@@ -8,6 +8,7 @@ import betterVideoAiDemo from '@/assets/better-video-ai-demo.mp4';
 import deckCraftHero from '@/assets/deckcraft-hero.png';
 import deckCraftFeatures from '@/assets/deckcraft-features.png';
 import deckCraftLab from '@/assets/deckcraft-lab.png';
+import deckCraftDemo from '@/assets/deckcraft-demo.mp4';
 
 export const projects: Project[] = [
   {
@@ -49,6 +50,7 @@ export const projects: Project[] = [
     year: '2026',
     slug: 'deckcraft',
     coverImage: deckCraftHero,
+    coverVideo: deckCraftDemo,
     description: 'Presentation intelligence platform that uses AI to analyze, understand, and transform decks into compelling stories. Features multimodal analysis, typography audits, layout alignment, and story flow analysis.',
     client: 'Personal Project',
     camera: 'Web Application',
