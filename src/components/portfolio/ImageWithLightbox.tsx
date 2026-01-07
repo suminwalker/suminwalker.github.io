@@ -42,18 +42,18 @@ export function ImageWithLightbox({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={cn('relative bg-muted', aspectRatioClasses[image.aspectRatio])}>
+      <div className="relative bg-muted">
         {/* Loading placeholder */}
         {!isLoaded && (
           <div className="absolute inset-0 bg-muted" />
         )}
 
-        {/* Actual image */}
+        {/* Actual image - no cropping, full image displayed */}
         <img
           src={image.src}
           alt={image.alt}
           className={cn(
-            'absolute inset-0 w-full h-full object-cover transition-all duration-700',
+            'w-full h-auto transition-all duration-700',
             isLoaded ? 'opacity-100' : 'opacity-0',
             isHovered && 'scale-105'
           )}

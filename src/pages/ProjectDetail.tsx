@@ -44,9 +44,9 @@ export default function ProjectDetail() {
       />
       
       <div className="min-h-screen">
-        {/* Hero Image - 70vh */}
+        {/* Hero Image - full width, no cropping */}
       <motion.div
-        className="relative w-full h-[70vh] overflow-hidden bg-muted"
+        className="relative w-full overflow-hidden bg-muted"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -54,7 +54,7 @@ export default function ProjectDetail() {
         <img
           src={project.coverImage}
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-auto"
           loading="eager"
           fetchPriority="high"
         />
