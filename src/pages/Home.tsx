@@ -6,6 +6,7 @@ import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { TypewriterText } from '@/components/ui/TypewriterText';
 import { SEOHead } from '@/components/seo/SEOHead';
+import { WelcomeModal } from '@/components/WelcomeModal';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <>
       <SEOHead />
+      <WelcomeModal />
       
       <div className="min-h-screen">
         {/* Hero Section - Full width video with centered text overlay */}
