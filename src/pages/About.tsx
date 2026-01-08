@@ -29,7 +29,7 @@ export default function About() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">
               About
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">
+            <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide hidden md:block">
               {photographerInfo.tagline}
             </p>
             
