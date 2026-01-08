@@ -93,7 +93,7 @@ export default function About() {
               transition={{ duration: 0.4, delay: 0.1 }}
             >
               {/* Name and Tagline */}
-              <div className="space-y-3">
+              <div className="space-y-3 text-center md:text-left">
                 <h2 className="text-4xl md:text-5xl font-light tracking-wide">
                   {photographerInfo.name}
                 </h2>
@@ -102,7 +102,7 @@ export default function About() {
                 </p>
                 
                 {/* Social Links - Mobile Only */}
-                <div className="flex items-center gap-4 md:hidden pt-2">
+                <div className="flex items-center justify-center md:justify-start gap-4 md:hidden pt-2">
                   {photographerInfo.socialLinks.linkedin && (
                     <a
                       href={photographerInfo.socialLinks.linkedin}
