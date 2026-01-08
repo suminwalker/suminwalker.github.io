@@ -33,8 +33,8 @@ export default function About() {
               {photographerInfo.tagline}
             </p>
             
-            {/* Social Links - Mobile Only */}
-            <div className="flex items-center justify-center gap-4 md:hidden pt-4">
+            {/* Social Links - Below tagline for both mobile and desktop */}
+            <div className="flex items-center justify-center gap-4 pt-4">
               {photographerInfo.socialLinks.linkedin && (
                 <a
                   href={photographerInfo.socialLinks.linkedin}
@@ -80,28 +80,6 @@ export default function About() {
                 >
                   <source src="/videos/about-video.mp4" type="video/mp4" />
                 </video>
-              </div>
-              
-              {/* Social Links - Desktop Only */}
-              <div className="hidden md:flex items-center gap-4">
-                {photographerInfo.socialLinks.linkedin && (
-                  <a
-                    href={photographerInfo.socialLinks.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="size-5" />
-                  </a>
-                )}
-                <a
-                  href={`mailto:${photographerInfo.email}`}
-                  className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
-                  aria-label="Email"
-                >
-                  <Mail className="size-5" />
-                </a>
               </div>
             </motion.div>
 
