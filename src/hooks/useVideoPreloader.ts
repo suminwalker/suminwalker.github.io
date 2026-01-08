@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 
+// Hero video (from public folder)
+const HERO_VIDEO = '/videos/hero-ocean.mp4';
+
 // Project demo videos
 import betterVideoAiDemo from '@/assets/better-video-ai-demo.mp4';
 import deckCraftDemo from '@/assets/deckcraft-demo.mp4';
@@ -13,7 +16,7 @@ import deckCraftFeatures from '@/assets/deckcraft-features.png';
 import deckCraftLab from '@/assets/deckcraft-lab.png';
 
 const CACHE_NAME = 'portfolio-assets-v1';
-const ASSET_VIDEOS = [betterVideoAiDemo, deckCraftDemo];
+const ASSET_VIDEOS = [HERO_VIDEO, betterVideoAiDemo, deckCraftDemo];
 const ASSET_IMAGES = [
   betterVideoAiLanding,
   betterVideoAiFeatures,
