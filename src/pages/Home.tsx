@@ -22,7 +22,20 @@ export default function Home() {
       
       <div className="min-h-screen">
         {/* Hero Section - Full width video with centered text overlay */}
-        <section className="relative h-screen w-full hidden lg:block bg-background">
+        <section className="relative h-screen w-full hidden lg:block bg-black overflow-hidden">
+          {/* Background Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/hero-ocean.mp4" type="video/mp4" />
+          </video>
+          
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/30" />
 
           {/* Centered Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
@@ -63,7 +76,20 @@ export default function Home() {
         </section>
 
         {/* Mobile Hero - Full screen */}
-        <section className="relative h-screen w-full lg:hidden bg-background">
+        <section className="relative h-screen w-full lg:hidden bg-black overflow-hidden">
+          {/* Background Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/hero-ocean.mp4" type="video/mp4" />
+          </video>
+          
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/30" />
 
           {/* Centered Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
