@@ -6,7 +6,6 @@ import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { TypewriterText } from '@/components/ui/TypewriterText';
 import { SEOHead } from '@/components/seo/SEOHead';
-import { WelcomeModal } from '@/components/WelcomeModal';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -20,115 +19,78 @@ export default function Home() {
   return (
     <>
       <SEOHead />
-      <WelcomeModal />
       
       <div className="min-h-screen">
-        {/* Hero Section - Full width video with centered text overlay */}
-        <section className="relative h-screen w-full hidden lg:block bg-black overflow-hidden">
-          {/* Background Video */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+        {/* Hero Section - Desktop */}
+        <section className="relative h-screen w-full hidden lg:flex items-center justify-center bg-background">
+          <motion.div
+            className="text-center space-y-6 max-w-xl px-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <source src="/videos/hero-ocean.mp4" type="video/mp4" />
-          </video>
-          
-          {/* Subtle overlay for text readability */}
-          <div className="absolute inset-0 bg-black/30" />
-
-          {/* Centered Text Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
-            <motion.div
-              className="text-center space-y-6 max-w-xl"
-              initial={{ opacity: 0, y: 30 }}
+            <motion.h1
+              className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-widest text-foreground"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
-              <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-widest text-white"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
-                {photographerInfo.name.toUpperCase()}
-              </motion.h1>
-              
-              <motion.p
-                className="text-xl md:text-2xl font-light tracking-wide text-white/90"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              >
-                {photographerInfo.tagline}
-              </motion.p>
+              {photographerInfo.name.toUpperCase()}
+            </motion.h1>
+            
+            <motion.p
+              className="text-xl md:text-2xl font-light tracking-wide text-foreground/90"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              {photographerInfo.tagline}
+            </motion.p>
 
-              <p className="text-base md:text-lg font-light leading-relaxed text-white/80 max-w-md mx-auto">
-                <TypewriterText 
-                  text={photographerInfo.heroIntroduction} 
-                  delay={1000} 
-                  speed={70}
-                />
-              </p>
-            </motion.div>
-
-          </div>
+            <p className="text-base md:text-lg font-light leading-relaxed text-muted-foreground max-w-md mx-auto">
+              <TypewriterText 
+                text={photographerInfo.heroIntroduction} 
+                delay={1000} 
+                speed={70}
+              />
+            </p>
+          </motion.div>
         </section>
 
-        {/* Mobile Hero - Full screen */}
-        <section className="relative h-screen w-full lg:hidden bg-black overflow-hidden">
-          {/* Background Video */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+        {/* Mobile Hero */}
+        <section className="relative h-screen w-full lg:hidden flex items-center justify-center bg-background">
+          <motion.div
+            className="text-center space-y-6 max-w-xl px-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <source src="/videos/hero-ocean.mp4" type="video/mp4" />
-          </video>
-          
-          {/* Subtle overlay for text readability */}
-          <div className="absolute inset-0 bg-black/30" />
-
-          {/* Centered Text Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
-            <motion.div
-              className="text-center space-y-6 max-w-xl"
-              initial={{ opacity: 0, y: 30 }}
+            <motion.h1
+              className="text-5xl md:text-6xl font-extralight tracking-widest text-foreground"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
-              <motion.h1
-                className="text-5xl md:text-6xl font-extralight tracking-widest text-white"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
-                {photographerInfo.name.toUpperCase()}
-              </motion.h1>
-              
-              <motion.p
-                className="text-xl md:text-2xl font-light tracking-wide text-white/90"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              >
-                {photographerInfo.tagline}
-              </motion.p>
+              {photographerInfo.name.toUpperCase()}
+            </motion.h1>
+            
+            <motion.p
+              className="text-xl md:text-2xl font-light tracking-wide text-foreground/90"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              {photographerInfo.tagline}
+            </motion.p>
 
-              <p className="text-base md:text-lg font-light leading-relaxed text-white/80 max-w-md mx-auto">
-                <TypewriterText 
-                  text={photographerInfo.heroIntroduction} 
-                  delay={1000} 
-                  speed={70}
-                />
-              </p>
-            </motion.div>
-
-          </div>
+            <p className="text-base md:text-lg font-light leading-relaxed text-muted-foreground max-w-md mx-auto">
+              <TypewriterText 
+                text={photographerInfo.heroIntroduction} 
+                delay={1000} 
+                speed={70}
+              />
+            </p>
+          </motion.div>
         </section>
 
         {/* Introduction Section */}
