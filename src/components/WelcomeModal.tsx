@@ -12,9 +12,8 @@ export function WelcomeModal() {
     // Check if user has dismissed the modal before
     const dismissed = sessionStorage.getItem(STORAGE_KEY);
     if (!dismissed) {
-      // Small delay before showing modal
-      const timer = setTimeout(() => setIsOpen(true), 800);
-      return () => clearTimeout(timer);
+      // Show immediately with hero text
+      setIsOpen(true);
     }
   }, []);
 
