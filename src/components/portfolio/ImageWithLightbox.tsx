@@ -42,10 +42,10 @@ export function ImageWithLightbox({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative bg-muted">
+      <div className="relative bg-background">
         {/* Loading placeholder */}
         {!isLoaded && (
-          <div className="absolute inset-0 bg-muted" />
+          <div className="absolute inset-0 bg-background" />
         )}
 
         {/* Actual image - no cropping, full image displayed */}
