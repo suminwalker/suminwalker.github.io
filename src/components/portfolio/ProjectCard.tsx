@@ -41,10 +41,10 @@ export function ProjectCard({
         className="group block relative overflow-hidden rounded-sm"
       >
         {/* Image/Video Container - fixed aspect ratio ensures same height */}
-        <div className="relative overflow-hidden bg-black aspect-[16/9]">
+        <div className="relative overflow-hidden bg-background md:bg-muted aspect-[4/3]">
           {/* Loading placeholder */}
           {!isLoaded && (
-            <div className="absolute inset-0 bg-black" />
+            <div className="absolute inset-0 bg-muted" />
           )}
           
           {project.coverVideo ? (
@@ -55,7 +55,7 @@ export function ProjectCard({
               muted
               playsInline
               className={cn(
-                'w-full h-full object-contain md:object-cover transition-all duration-700',
+                'w-full h-full object-contain transition-all duration-700',
                 isLoaded ? 'opacity-100' : 'opacity-0',
                 'group-hover:scale-110'
               )}
@@ -66,7 +66,7 @@ export function ProjectCard({
               src={project.coverImage}
               alt={project.title}
               className={cn(
-                'w-full h-full object-contain md:object-cover transition-all duration-700',
+                'w-full h-full object-contain transition-all duration-700',
                 isLoaded ? 'opacity-100' : 'opacity-0',
                 'group-hover:scale-110'
               )}
