@@ -33,27 +33,6 @@ export default function About() {
               {photographerInfo.tagline}
             </p>
             
-            {/* Social Links - Mobile Only */}
-            <div className="flex items-center justify-center gap-4 md:hidden pt-4">
-              {photographerInfo.socialLinks.linkedin && (
-                <a
-                  href={photographerInfo.socialLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="size-5" />
-                </a>
-              )}
-              <a
-                href={`mailto:${photographerInfo.email}`}
-                className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="size-5" />
-              </a>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -121,6 +100,28 @@ export default function About() {
                 <p className="text-xl text-muted-foreground font-light tracking-wide">
                   {photographerInfo.tagline}
                 </p>
+                
+                {/* Social Links - Mobile Only */}
+                <div className="flex items-center gap-4 md:hidden pt-2">
+                  {photographerInfo.socialLinks.linkedin && (
+                    <a
+                      href={photographerInfo.socialLinks.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="size-5" />
+                    </a>
+                  )}
+                  <a
+                    href={`mailto:${photographerInfo.email}`}
+                    className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
+                    aria-label="Email"
+                  >
+                    <Mail className="size-5" />
+                  </a>
+                </div>
               </div>
 
               <Separator />
