@@ -8,7 +8,6 @@ import { TypewriterText } from '@/components/ui/TypewriterText';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import heroBackground from '@/assets/open-water.jpg';
 
 /**
  * Homepage with immersive hero section and featured projects grid
@@ -23,19 +22,9 @@ export default function Home() {
       
       <div className="min-h-screen">
         {/* Hero Section - Desktop */}
-        <section className="relative h-screen w-full hidden lg:flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center scale-125"
-            style={{ 
-              backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: 'center 70%'
-            }}
-          />
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/40" />
+        <section className="relative h-screen w-full hidden lg:flex items-center justify-center bg-background">
           <motion.div
-            className="relative z-10 text-center space-y-6 max-w-xl px-8"
+            className="text-center space-y-6 max-w-xl px-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -69,19 +58,9 @@ export default function Home() {
         </section>
 
         {/* Mobile Hero */}
-        <section className="relative h-screen w-full lg:hidden flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center scale-150"
-            style={{ 
-              backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: 'center 80%'
-            }}
-          />
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/40" />
+        <section className="relative h-screen w-full lg:hidden flex items-center justify-center bg-background">
           <motion.div
-            className="relative z-10 text-center space-y-6 max-w-xl px-8"
+            className="text-center space-y-6 max-w-xl px-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
