@@ -70,7 +70,17 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
             >
-              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted hidden md:block" />
+              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-background hidden md:block">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/about-video.mp4" type="video/mp4" />
+                </video>
+              </div>
               
               {/* Social Links - Desktop Only */}
               <div className="hidden md:flex items-center gap-4">
