@@ -24,5 +24,28 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Protect favicon from being overridden
+      (function() {
+        const correctFavicon = '/favicon.png';
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.tagName === 'LINK' && node.rel && node.rel.includes('icon') && !node.href.endsWith('favicon.png')) {
+                node.href = correctFavicon;
+              }
+            });
+          });
+        });
+        observer.observe(document.head, { childList: true, subtree: true });
+        
+        // Also fix any existing wrong favicons
+        document.querySelectorAll('link[rel*="icon"]').forEach(function(link) {
+          if (!link.href.endsWith('favicon.png')) {
+            link.href = correctFavicon;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
