@@ -50,15 +50,18 @@ export function ProjectCard({
           {project.coverVideo ? (
             <video
               src={project.coverVideo}
+              poster={project.coverImage}
               autoPlay
               loop
               muted
               playsInline
+              preload="auto"
               className={cn(
                 'w-full h-full object-contain transition-all duration-700',
                 isLoaded ? 'opacity-100' : 'opacity-0',
                 'group-hover:scale-110'
               )}
+              onCanPlay={() => setIsLoaded(true)}
               onLoadedData={() => setIsLoaded(true)}
             />
           ) : (
