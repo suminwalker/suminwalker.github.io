@@ -42,40 +42,36 @@ export function ProjectCard({
       >
         {/* Image/Video Container - fixed aspect ratio ensures same height */}
         <div className="relative overflow-hidden bg-black aspect-[4/3]">
-          {/* Loading placeholder */}
-          {!isLoaded && (
-            <div className="absolute inset-0 bg-black" />
-          )}
+          {/* Always show cover image as background/fallback */}
+          <img
+            src={project.coverImage}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-contain"
+            loading={index < 6 ? 'eager' : 'lazy'}
+          />
           
-          {project.coverVideo ? (
+          {/* Video overlay - plays on top of image when ready */}
+          {project.coverVideo && (
             <video
               src={project.coverVideo}
-              poster={project.coverImage}
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
               className={cn(
-                'w-full h-full object-contain transition-all duration-700',
+                'absolute inset-0 w-full h-full object-contain transition-all duration-700',
                 isLoaded ? 'opacity-100' : 'opacity-0',
                 'group-hover:scale-110'
               )}
               onCanPlay={() => setIsLoaded(true)}
               onLoadedData={() => setIsLoaded(true)}
             />
-          ) : (
-            <motion.img
-              src={project.coverImage}
-              alt={project.title}
-              className={cn(
-                'w-full h-full object-contain transition-all duration-700',
-                isLoaded ? 'opacity-100' : 'opacity-0',
-                'group-hover:scale-110'
-              )}
-              loading={index < 6 ? 'eager' : 'lazy'}
-              onLoad={() => setIsLoaded(true)}
-            />
+          )}
+          
+          {/* Scale effect on hover for image-only cards */}
+          {!project.coverVideo && (
+            <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110" />
           )}
           
           {/* Subtle hover border effect */}
