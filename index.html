@@ -3,6 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Protect favicon IMMEDIATELY before any other scripts run
+      (function() {
+        const correctFavicon = '/favicon.png';
+        
+        // Aggressive observer for both new nodes AND attribute changes
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            // Handle new nodes
+            if (mutation.type === 'childList') {
+              mutation.addedNodes.forEach(function(node) {
+                if (node.tagName === 'LINK' && node.rel && node.rel.includes('icon')) {
+                  if (!node.href.endsWith('favicon.png')) {
+                    node.remove(); // Remove instead of modify
+                  }
+                }
+              });
+            }
+            // Handle attribute changes on existing links
+            if (mutation.type === 'attributes' && mutation.target.tagName === 'LINK') {
+              const link = mutation.target;
+              if (link.rel && link.rel.includes('icon') && !link.href.endsWith('favicon.png')) {
+                link.href = correctFavicon;
+              }
+            }
+          });
+        });
+        
+        // Start observing immediately
+        observer.observe(document.head, { 
+          childList: true, 
+          subtree: true, 
+          attributes: true, 
+          attributeFilter: ['href'] 
+        });
+        
+        // Continuous protection as backup
+        setInterval(function() {
+          document.querySelectorAll('link[rel*="icon"]').forEach(function(link) {
+            if (!link.href.endsWith('favicon.png')) {
+              link.href = correctFavicon;
+            }
+          });
+        }, 100);
+      })();
+    </script>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
@@ -24,28 +70,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // Protect favicon from being overridden
-      (function() {
-        const correctFavicon = '/favicon.png';
-        const observer = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            mutation.addedNodes.forEach(function(node) {
-              if (node.tagName === 'LINK' && node.rel && node.rel.includes('icon') && !node.href.endsWith('favicon.png')) {
-                node.href = correctFavicon;
-              }
-            });
-          });
-        });
-        observer.observe(document.head, { childList: true, subtree: true });
-        
-        // Also fix any existing wrong favicons
-        document.querySelectorAll('link[rel*="icon"]').forEach(function(link) {
-          if (!link.href.endsWith('favicon.png')) {
-            link.href = correctFavicon;
-          }
-        });
-      })();
-    </script>
   </body>
 </html>
