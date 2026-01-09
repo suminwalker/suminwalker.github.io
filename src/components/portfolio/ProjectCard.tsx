@@ -42,16 +42,7 @@ export function ProjectCard({
       >
         {/* Image/Video Container - fixed aspect ratio ensures same height */}
         <div className="relative overflow-hidden bg-black aspect-[4/3]">
-          {/* Always show cover image as background/fallback */}
-          <img
-            src={project.coverImage}
-            alt={project.title}
-            className="absolute inset-0 w-full h-full object-contain"
-            loading={index < 6 ? 'eager' : 'lazy'}
-          />
-          
-          {/* Video overlay - plays on top of image when ready */}
-          {project.coverVideo && (
+          {project.coverVideo ? (
             <video
               src={project.coverVideo}
               autoPlay
@@ -59,19 +50,15 @@ export function ProjectCard({
               muted
               playsInline
               preload="auto"
-              className={cn(
-                'absolute inset-0 w-full h-full object-contain transition-all duration-700',
-                isLoaded ? 'opacity-100' : 'opacity-0',
-                'group-hover:scale-110'
-              )}
-              onCanPlay={() => setIsLoaded(true)}
-              onLoadedData={() => setIsLoaded(true)}
+              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
             />
-          )}
-          
-          {/* Scale effect on hover for image-only cards */}
-          {!project.coverVideo && (
-            <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110" />
+          ) : (
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+              loading={index < 6 ? 'eager' : 'lazy'}
+            />
           )}
           
           {/* Subtle hover border effect */}
