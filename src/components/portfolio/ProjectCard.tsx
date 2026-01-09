@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Project } from '@/types';
@@ -21,14 +21,36 @@ export function ProjectCard({
   showCategory = true,
   index = 0 
 }: ProjectCardProps) {
-  const [isLoaded, setIsLoaded] = React.useState(false);
-  const ratio = aspectRatio || 'landscape';
+  const [isVideoReady, setIsVideoReady] = React.useState(false);
+  const [videoError, setVideoError] = React.useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
-  const aspectRatioClasses = {
-    portrait: 'aspect-[3/4]',
-    landscape: 'aspect-[3/2]',
-    square: 'aspect-square'
-  };
+  // Force video to play when loaded
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !project.coverVideo) return;
+    
+    const playVideo = async () => {
+      try {
+        video.muted = true; // Ensure muted for autoplay
+        await video.play();
+        setIsVideoReady(true);
+      } catch (err) {
+        console.log('Video autoplay failed:', err);
+        setVideoError(true);
+      }
+    };
+    
+    if (video.readyState >= 3) {
+      playVideo();
+    } else {
+      video.addEventListener('canplay', playVideo, { once: true });
+    }
+    
+    return () => {
+      video.removeEventListener('canplay', playVideo);
+    };
+  }, [project.coverVideo]);
 
   return (
     <motion.div
@@ -42,21 +64,29 @@ export function ProjectCard({
       >
         {/* Image/Video Container - fixed aspect ratio ensures same height */}
         <div className="relative overflow-hidden bg-black aspect-[4/3]">
-          {project.coverVideo ? (
+          {project.coverVideo && !videoError ? (
             <video
+              ref={videoRef}
               src={project.coverVideo}
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+              className={cn(
+                "w-full h-full object-contain transition-all duration-700 group-hover:scale-110",
+                isVideoReady ? "opacity-100" : "opacity-0"
+              )}
+              onError={() => setVideoError(true)}
             />
-          ) : (
+          ) : null}
+          
+          {/* Show cover image as fallback or while video loads */}
+          {(!project.coverVideo || videoError || !isVideoReady) && (
             <img
               src={project.coverImage}
               alt={project.title}
-              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+              className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
               loading={index < 6 ? 'eager' : 'lazy'}
             />
           )}
