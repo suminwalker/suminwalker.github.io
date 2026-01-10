@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, Github } from 'lucide-react';
 import { photographerInfo } from '@/data/photographer';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
@@ -74,6 +74,17 @@ export default function About() {
                     <Linkedin className="size-5" />
                   </a>
                 )}
+                {photographerInfo.socialLinks.github && (
+                  <a
+                    href={photographerInfo.socialLinks.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
+                    aria-label="GitHub"
+                  >
+                    <Github className="size-5" />
+                  </a>
+                )}
                 <a
                   href={`mailto:${photographerInfo.email}`}
                   className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
@@ -112,6 +123,17 @@ export default function About() {
                       aria-label="LinkedIn"
                     >
                       <Linkedin className="size-5" />
+                    </a>
+                  )}
+                  {photographerInfo.socialLinks.github && (
+                    <a
+                      href={photographerInfo.socialLinks.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
+                      aria-label="GitHub"
+                    >
+                      <Github className="size-5" />
                     </a>
                   )}
                   <a
